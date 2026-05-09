@@ -1,0 +1,124 @@
+---
+export interface NavLinkChild {
+  href: string;
+  text: string;
+}
+
+export interface Props {
+  href: string;
+  text: string;
+  children?: NavLinkChild[];
+  /**
+   * Duy nhất mỗi lần render (vd desktop `d-2`, mobile `m-2`) — tránh trùng id
+   * khi cùng map menu ở hai khối HTML.
+   */
+  submenuInstanceId?: string;
+}
+
+const { href, text, children, submenuInstanceId } = Astro.props;
+const hasSub = !!(children && children.length > 0);
+const slug = text
+  .toLowerCase()
+  .normalize("NFD")
+  .replace(/\p{M}/gu, "")
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/gi, "");
+const panelId = hasSub
+  ? submenuInstanceId
+    ? `nav-submenu-${submenuInstanceId}-${slug}`
+    : `nav-submenu-${slug}`
+  : undefined;
+
+const chevronClass =
+  "size-[1.125rem] shrink-0 opacity-70 transition-transform duration-200";
+---
+
+<li class:list={["w-full lg:w-auto", hasSub && "nav-submenu-parent relative"]}>
+  {
+    hasSub ? (
+      <>
+        <a
+          href={href}
+          data-desktop-nav-trigger
+          class="relative z-[1] hidden items-center gap-1 whitespace-nowrap py-3 lg:px-3 text-base font-medium text-heading-2 duration-300 ease-linear hover:text-primary lg:inline-flex"
+        >
+          {text}
+          <svg
+            class:list={[chevronClass, "nav-submenu-chevron-desktop"]}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          class="flex w-full min-h-[44px] touch-manipulation items-center justify-between gap-2 rounded-lg py-3 text-left text-base font-medium text-heading-2 lg:hidden"
+          data-nav-submenu-toggle
+          aria-expanded="false"
+          aria-controls={panelId}
+        >
+          <span>{text}</span>
+          <svg
+            class:list={[chevronClass, "nav-submenu-chevron"]}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </button>
+
+        <ul
+          id={panelId}
+          role="menu"
+          data-nav-submenu-panel
+          aria-hidden="true"
+          class:list={[
+            "nav-submenu-panel",
+            "z-[9999] lg:absolute lg:left-0 lg:top-full lg:min-w-[13rem] lg:pt-2 lg:bg-white dark:bg-box-bg lg:shadow-xl",
+            "lg:rounded-xl lg:border lg:border-box-border lg:bg-body dark:bg-box-bg lg:py-2 lg:shadow-xl",
+            "max-lg:hidden max-lg:w-full max-lg:flex-col max-lg:gap-1 max-lg:overflow-hidden max-lg:border-l max-lg:border-box-border/50 max-lg:pl-4 max-lg:pt-1",
+            "max-lg:data-[open=true]:flex",
+          ]}
+        >
+          {children!.map((c) => (
+            <li role="none">
+              <a
+                role="menuitem"
+                href={c.href}
+                class="block rounded-md px-3 py-2 text-base font-medium text-heading-2 duration-200 ease-linear hover:bg-box-bg hover:text-primary lg:whitespace-nowrap max-lg:opacity-95"
+              >
+                {c.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ) : (
+      <a
+        href={href}
+        data-desktop-nav-trigger
+        class="relative z-[1] block py-3 lg:px-3 text-base font-medium text-heading-2 duration-300 ease-linear hover:text-primary lg:inline-block"
+      >
+        {text}
+      </a>
+    )
+  }
+</li>
