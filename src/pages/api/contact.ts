@@ -26,6 +26,12 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    console.log("SMTP HOST:", import.meta.env.VERCEL_SMTP_HOST);
+    console.log("SMTP PORT:", import.meta.env.VERCEL_SMTP_PORT);
+    console.log("SMTP USER:", import.meta.env.VERCEL_SMTP_USER);
+    console.log("SMTP PASS:", import.meta.env.VERCEL_SMTP_PASS);
+    console.log("CONTACT TO EMAIL:", import.meta.env.VERCEL_CONTACT_TO_EMAIL);
+
     const smtpHost = import.meta.env.VERCEL_SMTP_HOST ?? "smtp.gmail.com";
     const smtpPort = Number(import.meta.env.VERCEL_SMTP_PORT ?? 587);
     const smtpUser = import.meta.env.VERCEL_SMTP_USER ?? "truongnpt1998@gmail.com";
