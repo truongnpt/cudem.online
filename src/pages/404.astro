@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import BtnLink from "../components/shared/BtnLink.astro";
+---
+
+<Layout title="Trang không tìm thấy" noindex>
+    <main
+        class="relative flex min-h-[min(70vh,560px)] flex-col justify-center overflow-hidden pt-28 lg:pt-32 pb-16 md:pb-24"
+        aria-labelledby="not-found-heading"
+    >
+        <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-0 -z-20"
+        >
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-primary/[0.08] via-transparent to-transparent dark:from-primary/[0.12]"
+            >
+            </div>
+            <div
+                class="absolute left-[10%] top-[20%] h-64 w-64 rounded-full bg-gradient-to-br from-teal-300/40 via-primary/25 to-transparent blur-3xl dark:from-teal-900/35"
+            >
+            </div>
+            <div
+                class="absolute right-[5%] bottom-[15%] h-72 w-72 rounded-full bg-gradient-to-tl from-amber-200/45 via-primary/15 to-transparent blur-3xl dark:from-amber-900/40"
+            >
+            </div>
+        </div>
+
+        <Container className="relative">
+            <div
+                class="mx-auto max-w-2xl rounded-3xl border border-box-border bg-box-bg/85 px-8 py-12 text-center shadow-xl shadow-box-shadow backdrop-blur-md dark:bg-box-bg/80 sm:px-10 sm:py-14 md:rounded-[2rem] md:py-16"
+            >
+                <p
+                    class="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary ring-1 ring-primary/25 mb-6"
+                >
+                    HTTP 404
+                </p>
+
+                <div
+                    class="relative mb-6 select-none tabular-nums"
+                    aria-hidden="true"
+                >
+                    <span
+                        class="block text-[clamp(4.5rem,18vw,8.5rem)] font-black leading-none text-heading-1/[0.12] dark:text-white/[0.08]"
+                        >404</span
+                    >
+                </div>
+
+                <h1
+                    id="not-found-heading"
+                    class="text-balance text-2xl font-bold tracking-tight text-heading-1 sm:text-3xl md:text-4xl mb-4"
+                >
+                    Không tìm thấy trang bạn yêu cầu
+                </h1>
+
+                <p class="text-heading-3 text-[1.05rem] leading-relaxed md:text-lg mx-auto max-w-md mb-10">
+                    Liên kết có thể đã đổi, bị gõ nhầm hoặc trang đã gỡ xuống.
+                    Bạn có thể quay về trang chủ hoặc mở các mục hay dùng sau
+                    đây.
+                </p>
+
+                <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
+                    <BtnLink href="/" variant="primary" text="Trang chủ" />
+                    <BtnLink
+                        href="/services"
+                        variant="secondary"
+                        text="Dịch vụ"
+                        className="rounded-full border border-box-border bg-transparent dark:bg-white/[0.04]"
+                    />
+                    <BtnLink
+                        href="/packages"
+                        variant="secondary"
+                        text="Bảng giá gói"
+                        className="rounded-full border border-box-border bg-transparent dark:bg-white/[0.04]"
+                    />
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-box-border/70">
+                    <p class="text-sm text-heading-3">
+                        Cần báo lỗi liên kết?{" "}
+                        <a
+                            href="/contact"
+                            class="font-semibold text-primary underline-offset-2 hover:underline"
+                            >Liên hệ chúng tôi</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </Container>
+    </main>
+</Layout>

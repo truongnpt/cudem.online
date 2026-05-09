@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg6" x1="96" y1="52" x2="1102" y2="628" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#bg6)"/>
+  <rect x="72" y="72" width="1056" height="531" rx="30" fill="white" fill-opacity="0.12"/>
+  <text x="96" y="184" fill="white" font-size="56" font-family="Arial, sans-serif" font-weight="700">EduTrack LMS</text>
+  <text x="96" y="250" fill="white" font-size="30" font-family="Arial, sans-serif" opacity="0.95">Nen tang quan ly lop hoc truc tuyen</text>
+</svg>

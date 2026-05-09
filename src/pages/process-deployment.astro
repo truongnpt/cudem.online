@@ -1,0 +1,105 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import BtnLink from "../components/shared/BtnLink.astro";
+import CTA from "../components/sections/CTA.astro";
+import ComtactForm from "../components/sections/ComtactForm.astro";
+
+const processSteps = [
+  {
+    title: "Đăng ký",
+    detail:
+      "Bạn gửi nhu cầu qua form hoặc liên hệ trực tiếp. Đội ngũ tiếp nhận thông tin cơ bản về mục tiêu, thời gian và phạm vi mong muốn.",
+  },
+  {
+    title: "Báo giá",
+    detail:
+      "Sau khi làm rõ yêu cầu, chúng tôi gửi báo giá chi tiết theo hạng mục công việc, timeline và các mốc nghiệm thu dự kiến.",
+  },
+  {
+    title: "Đặt cọc",
+    detail:
+      "Hai bên thống nhất proposal và tiến hành đặt cọc để khóa lịch triển khai, đồng thời xác nhận kế hoạch thực hiện chính thức.",
+  },
+  {
+    title: "Phát triển",
+    detail:
+      "Đội dự án thực hiện thiết kế và lập trình theo phạm vi đã thống nhất, cập nhật tiến độ định kỳ theo từng giai đoạn.",
+  },
+  {
+    title: "Demo",
+    detail:
+      "Bản demo được gửi để bạn trải nghiệm luồng sử dụng, kiểm tra nội dung và ghi nhận các góp ý trước khi go-live.",
+  },
+  {
+    title: "Triển khai",
+    detail:
+      "Website được triển khai lên môi trường thật, tối ưu cấu hình cần thiết và kiểm tra vận hành trên các thiết bị chính.",
+  },
+  {
+    title: "Thanh toán",
+    detail:
+      "Sau khi nghiệm thu các hạng mục theo hợp đồng, bạn hoàn tất phần thanh toán còn lại để kết thúc giai đoạn bàn giao.",
+  },
+  {
+    title: "Bảo hành",
+    detail:
+      "Chúng tôi hỗ trợ bảo hành kỹ thuật theo thời hạn cam kết, xử lý lỗi phát sinh từ phần đã triển khai và đồng hành vận hành ban đầu.",
+  },
+];
+---
+
+<Layout title="Quy trình triển khai">
+  <main class="relative flex flex-col gap-y-20 md:gap-y-28 overflow-hidden pt-28 lg:pt-36 pb-12 md:pb-20">
+    <section class="relative" aria-labelledby="process-heading">
+      <Container>
+        <nav class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="Breadcrumb">
+          <a href="/" class="rounded-full bg-box-bg/80 px-3 py-1 font-medium text-heading-3 shadow-sm ring-1 ring-box-border backdrop-blur-sm transition hover:text-primary hover:ring-primary/30 dark:bg-box-bg/60">Trang chủ</a>
+          <span class="text-heading-3 opacity-60" aria-hidden="true">/</span>
+          <span class="rounded-full bg-primary/12 px-3 py-1 font-semibold text-primary ring-1 ring-primary/25">Quy trình triển khai</span>
+        </nav>
+
+        <header class="mt-10 max-w-3xl space-y-5">
+          <p class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm">
+            Process Deployment
+          </p>
+          <h1 id="process-heading" class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl">
+            Quy trình triển khai website từ đăng ký đến bảo hành
+          </h1>
+          <Paragraph className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg">
+            Lộ trình rõ ràng giúp bạn nắm tiến độ, chủ động nguồn lực nội bộ và kiểm soát chất lượng theo từng mốc.
+          </Paragraph>
+          <div class="flex flex-wrap gap-3">
+            <BtnLink href="/packages" variant="secondary" text="Xem bảng giá" className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]" />
+            <BtnLink href="/contact" variant="primary" text="Liên hệ triển khai" />
+          </div>
+        </header>
+      </Container>
+    </section>
+
+    <section class="relative" aria-label="Các bước triển khai">
+      <Container>
+        <div class="grid gap-4 md:gap-5">
+          {processSteps.map((step, index) => (
+            <article class="rounded-2xl border border-box-border bg-box-bg/90 p-5 shadow-sm dark:bg-box-bg/70 md:p-6">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/12 font-bold text-primary ring-1 ring-primary/20">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2 class="text-xl font-semibold text-heading-2">{step.title}</h2>
+              </div>
+              <Paragraph className="mt-4 !text-heading-3 !leading-relaxed">
+                {step.detail}
+              </Paragraph>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <CTA />
+    <ComtactForm />
+  </main>
+</Layout>

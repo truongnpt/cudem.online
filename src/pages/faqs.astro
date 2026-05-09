@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import BtnLink from "../components/shared/BtnLink.astro";
+import CTA from "../components/sections/CTA.astro";
+import ComtactForm from "../components/sections/ComtactForm.astro";
+
+const faqs = [
+  {
+    question: "Thời gian làm một website thường bao lâu?",
+    answer:
+      "Website giới thiệu doanh nghiệp thường mất 2-5 tuần tùy số lượng trang, mức độ chỉnh giao diện và phần tích hợp. Các dự án có hệ thống quản trị, đồng bộ dữ liệu hoặc nhiều vai trò người dùng sẽ cần thêm thời gian để QA.",
+  },
+  {
+    question: "Chi phí thiết kế website được tính như thế nào?",
+    answer:
+      "Chi phí dựa trên phạm vi chức năng, độ phức tạp giao diện, số template trang và các tích hợp bên thứ ba. Chúng tôi luôn gửi báo giá theo hạng mục rõ ràng để bạn thấy phần nào bắt buộc và phần nào có thể làm theo giai đoạn.",
+  },
+  {
+    question: "Có hỗ trợ SEO khi bàn giao website không?",
+    answer:
+      "Có. Website được tối ưu SEO on-page cơ bản: cấu trúc heading, metadata, tốc độ tải, alt ảnh, schema cần thiết và URL thân thiện. Nếu bạn cần kế hoạch SEO nội dung dài hạn, đội sẽ tư vấn thêm theo mục tiêu traffic.",
+  },
+  {
+    question: "Sau khi bàn giao tôi có thể tự cập nhật nội dung không?",
+    answer:
+      "Có. Hệ thống quản trị được cấu hình để đội nội bộ có thể tự sửa nội dung, hình ảnh và bài viết mà không cần đụng code. Khi bàn giao sẽ có checklist và hướng dẫn thao tác để vận hành ổn định.",
+  },
+  {
+    question: "Website có bảo hành và hỗ trợ kỹ thuật không?",
+    answer:
+      "Có bảo hành kỹ thuật theo gói dịch vụ đã chọn. Trong thời gian bảo hành, các lỗi phát sinh từ code triển khai sẽ được xử lý ưu tiên. Ngoài ra có thể mở gói bảo trì định kỳ nếu bạn cần theo dõi liên tục.",
+  },
+  {
+    question: "Tôi cần chuẩn bị gì trước khi bắt đầu dự án?",
+    answer:
+      "Bạn chỉ cần brief mục tiêu kinh doanh, chân dung khách hàng chính, tài liệu thương hiệu (nếu có) và các ví dụ website bạn thích. Những phần còn thiếu như kiến trúc nội dung hoặc luồng trang sẽ được đội đề xuất.",
+  },
+];
+---
+
+<Layout title="FAQs thiết kế website">
+  <main class="relative flex flex-col gap-y-20 md:gap-y-28 overflow-hidden pt-28 lg:pt-36 pb-12 md:pb-20">
+    <section class="relative" aria-labelledby="faqs-heading">
+      <Container>
+        <nav class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" aria-label="Breadcrumb">
+          <a href="/" class="rounded-full bg-box-bg/80 px-3 py-1 font-medium text-heading-3 shadow-sm ring-1 ring-box-border backdrop-blur-sm transition hover:text-primary hover:ring-primary/30 dark:bg-box-bg/60">Trang chủ</a>
+          <span class="text-heading-3 opacity-60" aria-hidden="true">/</span>
+          <span class="rounded-full bg-primary/12 px-3 py-1 font-semibold text-primary ring-1 ring-primary/25">FAQs</span>
+        </nav>
+
+        <header class="mt-10 max-w-3xl space-y-5">
+          <p class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm">
+            Câu hỏi thường gặp
+          </p>
+          <h1 id="faqs-heading" class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl">
+            Giải đáp nhanh cho dịch vụ thiết kế website
+          </h1>
+          <Paragraph className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg">
+            Tổng hợp các câu hỏi khách hàng thường hỏi trước khi bắt đầu dự án website.
+            Nếu bạn cần tư vấn theo case riêng, có thể liên hệ để nhận đề xuất chi tiết.
+          </Paragraph>
+          <div class="flex flex-wrap gap-3">
+            <BtnLink href="/packages" variant="secondary" text="Xem bảng giá" className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]" />
+            <BtnLink href="/contact" variant="primary" text="Liên hệ tư vấn" />
+          </div>
+        </header>
+      </Container>
+    </section>
+
+    <section class="relative" aria-label="Danh sách câu hỏi thường gặp">
+      <Container>
+        <div class="space-y-4">
+          {faqs.map((item) => (
+            <details class="group rounded-2xl border border-box-border bg-box-bg/90 p-5 shadow-sm transition open:shadow-md dark:bg-box-bg/70">
+              <summary class="cursor-pointer list-none text-lg font-semibold text-heading-2 pr-8 relative">
+                {item.question}
+                <span class="absolute right-0 top-1 text-primary transition-transform group-open:rotate-45 text-2xl leading-none">+</span>
+              </summary>
+              <Paragraph className="mt-4 !text-heading-3 !leading-relaxed">
+                {item.answer}
+              </Paragraph>
+            </details>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    <CTA />
+    <ComtactForm />
+  </main>
+</Layout>

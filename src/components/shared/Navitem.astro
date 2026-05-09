@@ -13,9 +13,10 @@ export interface Props {
    * khi cùng map menu ở hai khối HTML.
    */
   submenuInstanceId?: string;
+  target?: string;
 }
 
-const { href, text, children, submenuInstanceId } = Astro.props;
+const { href, text, children, submenuInstanceId, target } = Astro.props;
 const hasSub = !!(children && children.length > 0);
 const slug = text
   .toLowerCase()
@@ -39,6 +40,7 @@ const chevronClass =
       <>
         <a
           href={href}
+          target={target}
           data-desktop-nav-trigger
           class="relative z-[1] hidden items-center gap-1 whitespace-nowrap py-3 lg:px-3 text-base font-medium text-heading-2 duration-300 ease-linear hover:text-primary lg:inline-flex"
         >
@@ -114,6 +116,7 @@ const chevronClass =
     ) : (
       <a
         href={href}
+        target={target}
         data-desktop-nav-trigger
         class="relative z-[1] block py-3 lg:px-3 text-base font-medium text-heading-2 duration-300 ease-linear hover:text-primary lg:inline-block"
       >

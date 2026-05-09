@@ -1,0 +1,21 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import ContactFormFormik from "../react/ContactFormFormik";
+---
+
+<section id="contact" class="pb-20">
+  <Container>
+    <div class="mx-auto max-w-3xl rounded-2xl border border-box-border bg-box-bg p-6 sm:p-8 shadow-lg shadow-box-shadow">
+      <div class="text-center space-y-3">
+        <Title>Liên hệ tư vấn</Title>
+        <Paragraph>
+          Điền thông tin để chúng tôi tư vấn giải pháp thiết kế website phù hợp với nhu cầu của bạn.
+        </Paragraph>
+      </div>
+
+      <ContactFormFormik client:load />
+    </div>
+  </Container>
+</section>

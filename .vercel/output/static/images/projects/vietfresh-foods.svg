@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1120" y2="635" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#bg)"/>
+  <rect x="72" y="72" width="1056" height="531" rx="30" fill="white" fill-opacity="0.14"/>
+  <text x="96" y="184" fill="white" font-size="56" font-family="Arial, sans-serif" font-weight="700">VietFresh Foods</text>
+  <text x="96" y="250" fill="white" font-size="30" font-family="Arial, sans-serif" opacity="0.92">Website doanh nghiep - thuc pham sach</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="100" y1="40" x2="1080" y2="635" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C3AED"/>
+      <stop offset="1" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#g2)"/>
+  <rect x="72" y="72" width="1056" height="531" rx="30" fill="white" fill-opacity="0.12"/>
+  <text x="96" y="188" fill="white" font-size="56" font-family="Arial, sans-serif" font-weight="700">Hack Game</text>
+  <text x="96" y="254" fill="white" font-size="30" font-family="Arial, sans-serif" opacity="0.94">Website ban account game</text>
+</svg>

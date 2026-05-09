@@ -1,0 +1,214 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/shared/Container.astro";
+import Paragraph from "../components/shared/Paragraph.astro";
+import BtnLink from "../components/shared/BtnLink.astro";
+import CTA from "../components/sections/CTA.astro";
+import ComtactForm from "../components/sections/ComtactForm.astro";
+import { projects } from "../utils/data";
+
+type ProjectItem = (typeof projects)[number];
+type ProjectType = "website" | "web-application";
+
+const projectTypeMeta: Record<
+  ProjectType,
+  {
+    label: string;
+    badge: string;
+    timeline: string;
+    stack: string;
+    contactPackageId: string;
+  }
+> = {
+  website: {
+    label: "Website",
+    badge: "Website doanh nghiệp",
+    timeline: "2-5 tuần",
+    stack: "Astro / WordPress / TailwindCSS",
+    contactPackageId: "website-doanh-nghiep",
+  },
+  "web-application": {
+    label: "Web application",
+    badge: "Hệ thống vận hành web",
+    timeline: "4-12 tuần",
+    stack: "Next.js / Laravel / PostgreSQL",
+    contactPackageId: "web-application",
+  },
+};
+
+const normalizeType = (value: string | null): ProjectType | null => {
+  if (value === "website" || value === "web-application") return value;
+  return null;
+};
+
+const inferType = (project: ProjectItem): ProjectType =>
+  project.title.toLowerCase().includes("application")
+    ? "web-application"
+    : "website";
+
+const selectedType = normalizeType(Astro.url.searchParams.get("type"));
+
+const normalizedProjects = projects.map((project) => {
+  const type = inferType(project);
+  return {
+    ...project,
+    type,
+    ...projectTypeMeta[type],
+  };
+});
+
+const visibleProjects = selectedType
+  ? normalizedProjects.filter((project) => project.type === selectedType)
+  : normalizedProjects;
+---
+
+<Layout title="Dự án đã triển khai">
+  <main
+    class="relative flex flex-col gap-y-20 md:gap-y-28 overflow-hidden pt-28 lg:pt-36 pb-12 md:pb-20"
+  >
+    <section aria-labelledby="projects-heading" class="relative">
+      <Container>
+        <nav
+          class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm"
+          aria-label="Breadcrumb"
+        >
+          <a
+            href="/"
+            class="rounded-full bg-box-bg/80 px-3 py-1 font-medium text-heading-3 shadow-sm ring-1 ring-box-border backdrop-blur-sm transition hover:text-primary hover:ring-primary/30 dark:bg-box-bg/60"
+            >Trang chủ</a
+          >
+          <span class="text-heading-3 opacity-60" aria-hidden="true">/</span>
+          <span
+            class="rounded-full bg-primary/12 px-3 py-1 font-semibold text-primary ring-1 ring-primary/25"
+            >Dự án</span
+          >
+        </nav>
+
+        <header class="mt-10 max-w-3xl space-y-5">
+          <p
+            class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm"
+          >
+            Dự án tiêu biểu
+          </p>
+          <h1
+            id="projects-heading"
+            class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl"
+          >
+            Các dự án chúng tôi đã triển khai và tối ưu theo mục tiêu thực tế
+          </h1>
+          <Paragraph
+            className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg"
+          >
+            Mỗi dự án đều bắt đầu từ vấn đề kinh doanh rõ ràng: tăng chuyển đổi,
+            chuẩn hóa quy trình hoặc nâng chất lượng trải nghiệm người dùng trên
+            web.
+          </Paragraph>
+          <div class="flex flex-wrap gap-3">
+            <BtnLink
+              href="/projects"
+              variant={selectedType === null ? "primary" : "secondary"}
+              text="Tất cả"
+              className="rounded-full border border-box-border bg-white/60 dark:bg-white/[0.05]"
+            />
+            <BtnLink
+              href="/projects/website"
+              variant={selectedType === "website" ? "primary" : "secondary"}
+              text="Website"
+              className="rounded-full border border-box-border bg-white/60 dark:bg-white/[0.05]"
+            />
+            <BtnLink
+              href="/projects/web-application"
+              variant={selectedType === "web-application"
+                ? "primary"
+                : "secondary"}
+              text="Web application"
+              className="rounded-full border border-box-border bg-white/60 dark:bg-white/[0.05]"
+            />
+          </div>
+        </header>
+      </Container>
+    </section>
+
+    <section class="relative" aria-label="Danh sách dự án">
+      <Container>
+        {
+          visibleProjects.length === 0 ? (
+            <div class="rounded-3xl border border-dashed border-box-border bg-box-bg/75 p-8 text-center md:p-12">
+              <h2 class="text-2xl font-semibold text-heading-2">
+                Chưa có dự án đúng bộ lọc này
+              </h2>
+              <Paragraph className="mt-3 !text-heading-3">
+                Bạn có thể xem toàn bộ dự án hoặc liên hệ để nhận case study gần
+                nhất theo lĩnh vực của mình.
+              </Paragraph>
+              <div class="mt-6 flex justify-center">
+                <BtnLink
+                  href="/projects"
+                  variant="primary"
+                  text="Xem tất cả dự án"
+                />
+              </div>
+            </div>
+          ) : (
+            <div class="grid gap-6 md:grid-cols-2">
+              {visibleProjects.map((project) => (
+                <article class="rounded-3xl border border-box-border bg-box-bg/90 p-7 shadow-lg shadow-box-shadow backdrop-blur-sm dark:bg-box-bg/70">
+                  <div class="flex items-start justify-between gap-4">
+                    <span class="inline-flex items-center rounded-full bg-primary/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary/20">
+                      {project.badge}
+                    </span>
+                    <span class="text-heading-3" set:html={project.icon} />
+                  </div>
+
+                  <h2 class="mt-5 text-2xl font-semibold text-heading-2">
+                    {project.title}
+                  </h2>
+                  <Paragraph className="mt-4 !text-heading-3 !leading-relaxed">
+                    {project.description}
+                  </Paragraph>
+
+                  <dl class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div class="rounded-2xl border border-box-border/80 bg-white/65 p-4 dark:bg-white/[0.03]">
+                      <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-heading-3">
+                        Thời gian điển hình
+                      </dt>
+                      <dd class="mt-2 text-base font-semibold text-heading-2">
+                        {project.timeline}
+                      </dd>
+                    </div>
+                    <div class="rounded-2xl border border-box-border/80 bg-white/65 p-4 dark:bg-white/[0.03]">
+                      <dt class="text-xs font-semibold uppercase tracking-[0.12em] text-heading-3">
+                        Công nghệ đề xuất
+                      </dt>
+                      <dd class="mt-2 text-base font-semibold text-heading-2">
+                        {project.stack}
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-7 flex flex-wrap gap-3">
+                    <BtnLink
+                      href={`/contact?package=${project.contactPackageId}`}
+                      variant="primary"
+                      text="Nhận tư vấn tương tự"
+                    />
+                    <BtnLink
+                      href="/packages"
+                      variant="secondary"
+                      text="Xem gói dịch vụ"
+                      className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]"
+                    />
+                  </div>
+                </article>
+              ))}
+            </div>
+          )
+        }
+      </Container>
+    </section>
+
+    <CTA />
+    <ComtactForm />
+  </main>
+</Layout>

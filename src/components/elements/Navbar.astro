@@ -3,6 +3,7 @@ import BtnLink from "../shared/BtnLink.astro";
 import Container from "../shared/Container.astro";
 import Navitem from "../shared/Navitem.astro";
 import { app } from "../../configs/app";
+import { services, projects } from "../../utils/data";
 const navItems = [
   {
     href: "/",
@@ -11,18 +12,21 @@ const navItems = [
   {
     href: "/services",
     text: "Dịch vụ",
-    children: [
-      { href: "/services/consulting", text: "Tư vấn chiến lược" },
-      { href: "/services/content", text: "Sản xuất nội dung" },
-      { href: "/services/ads", text: "Chạy quảng cáo" },
-    ],
+    children: services.map((s) => ({
+      href: `/services/${s.slug}`,
+      text: s.title,
+    })),
   },
   {
-    href: "/products",
-    text: "Sản phẩm",
+    href: "/packages",
+    text: "Giá dịch vụ",
+  },
+  {
+    href: "/projects",
+    text: "Dự án",
     children: [
-      { href: "/products/kits", text: "Gói dịch vụ" },
-      { href: "/products/tools", text: "Công cụ & template" },
+      { href: "/projects/website", text: projects[0].title },
+      { href: "/projects/web-application", text: projects[1].title },
     ],
   },
   {
@@ -30,8 +34,9 @@ const navItems = [
     text: "Về chúng tôi",
   },
   {
-    href: "/shop",
+    href: "https://the-gioi-kho.vercel.app",
     text: "Cửa hàng",
+    target: "_blank",
   },
 ];
 ---
@@ -70,14 +75,20 @@ const navItems = [
               class="desktop-nav-indicator"></span>
             {
               navItems.map((item, i) => {
-                return <Navitem {...item} submenuInstanceId={`d-${i}`} />;
+                return (
+                  <Navitem
+                    {...item}
+                    submenuInstanceId={`d-${i}`}
+                    target={item.target}
+                  />
+                );
               })
             }
           </ul>
           <div class="lg:min-w-max flex items-center sm:w-max">
             <BtnLink
               text="Liên hệ"
-              href="#contact"
+              href="/contact"
               className="flex justify-center w-full sm:w-max"
               variant="primary"
             />
@@ -203,7 +214,13 @@ const navItems = [
       >
         {
           navItems.map((item, i) => {
-            return <Navitem {...item} submenuInstanceId={`m-${i}`} />;
+            return (
+              <Navitem
+                {...item}
+                submenuInstanceId={`m-${i}`}
+                target={item.target}
+              />
+            );
           })
         }
       </ul>
@@ -213,7 +230,7 @@ const navItems = [
       >
         <BtnLink
           text="Liên hệ"
-          href="#contact"
+          href="/contact"
           className="flex justify-center w-full sm:w-max"
           variant="primary"
         />

@@ -1,0 +1,256 @@
+---
+import PackageService from "../cards/PackageService.astro";
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+import { packageServices } from "../../utils/data.ts";
+
+type PackageServicesItem = {
+  id: string;
+  title: string;
+  discountPercent: number;
+  features: string[];
+  priceVnd?: number;
+};
+---
+
+<section id="package-services">
+  <Container className="space-y-10 md:space-y-12">
+    <div class="text-center max-w-3xl mx-auto space-y-4">
+      <Title>Gói dịch vụ</Title>
+      <Paragraph>
+        Lựa chọn gói phù hợp với quy mô và mục tiêu kinh doanh; mọi gói đều được
+        triển khai chuyên nghiệp, hỗ trợ và bảo hành rõ ràng. Vuốt hoặc dùng nút
+        để xem thêm các gói.
+      </Paragraph>
+    </div>
+
+    <div
+      class="package-services-carousel-wrap flex items-center gap-4 sm:gap-5 lg:gap-6"
+      data-pkg-carousel-wrap
+    >
+      <button
+        type="button"
+        class="pkg-swiper-prev swiper-button-prev shrink-0"
+        aria-label="Slide trước"></button>
+      <div class="relative min-w-0 flex-1">
+        <div
+          class="package-services-carousel swiper overflow-hidden pb-12 md:pb-14"
+          data-pkg-carousel
+          aria-roledescription="carousel"
+          aria-label="Danh sách gói dịch vụ"
+        >
+          <div class="swiper-wrapper">
+            {
+              packageServices.map((pkg: PackageServicesItem) => {
+                const hasFixedPrice = typeof pkg.priceVnd === "number";
+                return (
+                  <div class="swiper-slide !h-auto max-sm:!min-h-0">
+                    <PackageService
+                      title={pkg.title}
+                      discountPercent={pkg.discountPercent}
+                      features={pkg.features}
+                      priceVnd={pkg.priceVnd}
+                      ctaHref={
+                        hasFixedPrice
+                          ? `/order?id=${pkg.id}`
+                          : `/contact?package=${pkg.id}`
+                      }
+                      ctaText={hasFixedPrice ? "Đăng ký" : "Liên hệ"}
+                      ctaVariant={hasFixedPrice ? "primary" : "secondary"}
+                    />
+                  </div>
+                );
+              })
+            }
+          </div>
+          <div class="pkg-swiper-pagination swiper-pagination"></div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="pkg-swiper-next swiper-button-next shrink-0"
+        aria-label="Slide sau"></button>
+    </div>
+  </Container>
+</section>
+
+<style is:global>
+  .package-services-carousel .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .package-services-carousel .swiper-slide > div {
+    height: 100%;
+  }
+
+  .package-services-carousel .pkg-swiper-pagination {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+  }
+
+  .package-services-carousel .pkg-swiper-pagination .swiper-pagination-bullet {
+    background: rgb(var(--heading-3) / 0.35);
+    opacity: 1;
+  }
+
+  .package-services-carousel
+    .pkg-swiper-pagination
+    .swiper-pagination-bullet-active {
+    background: var(--color-primary, #279824);
+    transform: scale(1.1);
+  }
+
+  .dark
+    .package-services-carousel
+    .pkg-swiper-pagination
+    .swiper-pagination-bullet {
+    background: rgb(var(--heading-3) / 0.35);
+  }
+
+  .dark
+    .package-services-carousel
+    .pkg-swiper-pagination
+    .swiper-pagination-bullet-active {
+    background: var(--color-primary, #279824);
+  }
+
+  .package-services-carousel-wrap > .swiper-button-prev,
+  .package-services-carousel-wrap > .swiper-button-next {
+    position: relative;
+    inset: auto;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: none;
+    z-index: 20;
+    color: var(--color-primary, #279824);
+    border-radius: 9999px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(var(--box-border));
+    background-color: rgb(var(--color-box));
+    box-shadow:
+      0 10px 15px -3px rgb(var(--box-sd)),
+      0 4px 6px -4px rgb(var(--box-sd) / 0.6);
+    transition:
+      opacity 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .package-services-carousel-wrap > .swiper-button-prev svg,
+  .package-services-carousel-wrap > .swiper-button-next svg {
+    width: 50%;
+    height: 50%;
+  }
+
+  .package-services-carousel-wrap > .swiper-button-prev:hover,
+  .package-services-carousel-wrap > .swiper-button-next:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+    color: var(--color-primary, #279824);
+    border-color: var(--color-primary, #279824);
+    background-color: var(--color-primary, #279824);
+    box-shadow:
+      0 10px 15px -3px rgb(var(--box-sd)),
+      0 4px 6px -4px rgb(var(--box-sd) / 0.6);
+    transition:
+      opacity 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .package-services-carousel-wrap > .swiper-button-prev:hover svg,
+  .package-services-carousel-wrap > .swiper-button-next:hover svg {
+    color: var(--color-white, #fff);
+  }
+
+  .package-services-carousel-wrap > .swiper-button-prev::after,
+  .package-services-carousel-wrap > .swiper-button-next::after {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 639px) {
+    .package-services-carousel-wrap > .pkg-swiper-prev,
+    .package-services-carousel-wrap > .pkg-swiper-next {
+      display: none !important;
+    }
+    .package-services-carousel-wrap {
+      gap: 0;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+
+  const SELECTOR = "[data-pkg-carousel]";
+
+  function mountCarousel() {
+    const el = document.querySelector(SELECTOR) as HTMLElement | null;
+    if (!el || !(el instanceof HTMLElement)) return;
+
+    const typed = el as HTMLElement & {
+      swiper?: { destroy?: (b?: boolean, c?: boolean) => void };
+    };
+    typed.swiper?.destroy?.(true, true);
+
+    const pagination = el.querySelector<HTMLElement>(".pkg-swiper-pagination");
+    const wrap = el.closest<HTMLElement>("[data-pkg-carousel-wrap]");
+    const prev =
+      wrap?.querySelector<HTMLElement>(".pkg-swiper-prev") ?? undefined;
+    const next =
+      wrap?.querySelector<HTMLElement>(".pkg-swiper-next") ?? undefined;
+
+    new Swiper(el, {
+      slidesPerView: 1,
+      spaceBetween: 24,
+      watchOverflow: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 28,
+        },
+        1280: {
+          slidesPerView: 3,
+          spaceBetween: 32,
+        },
+      },
+      pagination: {
+        el: pagination,
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        prevEl: prev,
+        nextEl: next,
+      },
+    });
+  }
+
+  mountCarousel();
+
+  window.addEventListener("load", () => {
+    const inst = (
+      document.querySelector(SELECTOR) as HTMLElement & {
+        swiper?: { update: () => void };
+      }
+    ).swiper;
+    inst?.update?.();
+  });
+
+  document.addEventListener("astro:page-load", mountCarousel);
+</script>

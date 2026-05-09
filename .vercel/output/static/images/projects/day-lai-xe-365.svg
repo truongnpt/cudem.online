@@ -1,0 +1,12 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g4" x1="84" y1="46" x2="1110" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#059669"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#g4)"/>
+  <rect x="72" y="72" width="1056" height="531" rx="30" fill="white" fill-opacity="0.12"/>
+  <text x="96" y="188" fill="white" font-size="56" font-family="Arial, sans-serif" font-weight="700">Day lai xe 365</text>
+  <text x="96" y="254" fill="white" font-size="30" font-family="Arial, sans-serif" opacity="0.94">Website dang ky hoc lai xe</text>
+</svg>
