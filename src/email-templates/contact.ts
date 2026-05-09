@@ -33,7 +33,7 @@ export const getContactTemplate = ({
               style="background:#279824; padding:30px 20px; color:#ffffff;">
 
               <img
-                src="${app.logo}"
+                src="${import.meta.env.VERCEL_URL_APP}${app.logo}"
                 alt="Logo"
                 width="70"
                 style="display:block; margin-bottom:15px;"
