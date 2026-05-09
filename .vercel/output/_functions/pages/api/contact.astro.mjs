@@ -136,7 +136,6 @@ const POST = async ({ request }) => {
     const smtpUser = "truongnpt1998@gmail.com";
     const smtpPass = "otqaftcckelfemfc";
     const mailTo = "truongnpt1998@gmail.com";
-    console.log(smtpHost, smtpPort, smtpUser, smtpPass, mailTo);
     if (!smtpHost || !smtpUser || !smtpPass || !mailTo) ;
     const transporter = nodemailer.createTransport({
       host: smtpHost,
@@ -162,12 +161,17 @@ ${message}`,
     return new Response(
       JSON.stringify({
         ok: true,
-        message: "Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ sớm. Cảm ơn bạn đã liên hệ."
+        message: "Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ sớm."
       }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Lỗi form liên hệ:", error);
+    const err = error;
+    console.error("Lỗi form liên hệ:", {
+      code: err?.code,
+      message: err?.message,
+      response: err?.response
+    });
     return new Response(
       JSON.stringify({
         ok: false,
