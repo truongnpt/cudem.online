@@ -166,7 +166,12 @@ ${message}`,
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Lỗi form liên hệ:", error);
+    const err = error;
+    console.error("Lỗi form liên hệ:", {
+      code: err?.code,
+      message: err?.message,
+      response: err?.response
+    });
     return new Response(
       JSON.stringify({
         ok: false,

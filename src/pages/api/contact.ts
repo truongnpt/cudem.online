@@ -64,7 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({
         ok: true,
-        message: "Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ sớm.",
+        message: "Gửi yêu cầu thành công. Chúng tôi sẽ liên hệ sớm. Cảm ơn bạn đã liên hệ.",
       }),
       { status: 200, headers: { "Content-Type": "application/json" } },
     );
