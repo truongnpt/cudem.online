@@ -14,7 +14,7 @@ type PackageServicesItem = {
 };
 ---
 
-<section id="package-services">
+<section id="package-services" class="scroll-mt-36">
   <Container className="space-y-10 md:space-y-12">
     <div class="text-center max-w-3xl mx-auto space-y-4">
       <Title>Gói dịch vụ</Title>
@@ -43,7 +43,6 @@ type PackageServicesItem = {
           <div class="swiper-wrapper">
             {
               packageServices.map((pkg: PackageServicesItem) => {
-                const hasFixedPrice = typeof pkg.priceVnd === "number";
                 return (
                   <div class="swiper-slide !h-auto max-sm:!min-h-0">
                     <PackageService
@@ -51,13 +50,9 @@ type PackageServicesItem = {
                       discountPercent={pkg.discountPercent}
                       features={pkg.features}
                       priceVnd={pkg.priceVnd}
-                      ctaHref={
-                        hasFixedPrice
-                          ? `/order?id=${pkg.id}`
-                          : `/contact?package=${pkg.id}`
-                      }
-                      ctaText={hasFixedPrice ? "Đăng ký" : "Liên hệ"}
-                      ctaVariant={hasFixedPrice ? "primary" : "secondary"}
+                      ctaHref="#contact"
+                      ctaText={"Liên hệ tư vấn"}
+                      ctaVariant={"primary"}
                     />
                   </div>
                 );
