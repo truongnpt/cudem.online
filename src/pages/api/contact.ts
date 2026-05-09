@@ -32,6 +32,8 @@ export const POST: APIRoute = async ({ request }) => {
     const smtpPass = import.meta.env.SMTP_PASS;
     const mailTo = import.meta.env.CONTACT_TO_EMAIL ?? smtpUser;
 
+    console.log(smtpHost, smtpPort, smtpUser, smtpPass, mailTo);
+
     if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
       return new Response(
         JSON.stringify({
