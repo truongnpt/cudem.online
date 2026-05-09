@@ -119,7 +119,7 @@ const websiteProjects = [
     {
         name: "Future Accounting",
         industry: "Kế toán",
-        image: "/images/projects/future-accounting.svg",
+        image: "/images/projects/future-accounting.png",
         imageAlt: "Ảnh đại diện dự án Future Accounting",
         summary:
             "Website dịch vụ kế toán giúp doanh nghiệp dễ chọn gói dịch vụ, gửi yêu cầu tư vấn và theo dõi lịch hẹn làm việc.",
@@ -130,7 +130,7 @@ const websiteProjects = [
     {
         name: "Hack Game",
         industry: "Bán account game",
-        image: "/images/projects/hack-game.svg",
+        image: "/images/projects/hackgame.png",
         imageAlt: "Ảnh đại diện dự án Hack Game",
         summary:
             "Website thương mại điện tử chuyên bán account game với danh mục sản phẩm rõ ràng, lọc theo tựa game và mức rank.",
@@ -141,7 +141,7 @@ const websiteProjects = [
     {
         name: "Ốc bươu vàng",
         industry: "Bán account Netflix",
-        image: "/images/projects/oc-buou-vang.svg",
+        image: "/images/projects/oc-buou-vang.png",
         imageAlt: "Ảnh đại diện dự án Ốc bươu vàng",
         summary:
             "Xây dựng website bán account Netflix theo gói thời hạn, quản lý tồn kho account và tự động gửi thông tin sau thanh toán.",
@@ -152,7 +152,7 @@ const websiteProjects = [
     {
         name: "Dạy lái xe 365",
         industry: "Đăng ký học lái xe",
-        image: "/images/projects/day-lai-xe-365.svg",
+        image: "/images/projects/day-lai-xe.png",
         imageAlt: "Ảnh đại diện dự án Dạy lái xe 365",
         summary:
             "Website tuyển sinh khóa học lái xe với lịch khai giảng, biểu phí minh bạch và form đăng ký theo khu vực.",
@@ -160,13 +160,24 @@ const websiteProjects = [
             "Tăng 41% lượng đăng ký khóa học online và giảm tỉ lệ bỏ form nhờ tối ưu mobile.",
         stack: "Astro, Node.js, PostgreSQL",
     },
+    {
+        name: "Thế Giới Khô",
+        industry: "Bán các sản phẩm khô",
+        image: "/images/projects/the-gioi-kho.png",
+        imageAlt: "Ảnh đại diện dự án Thế Giới Khô",
+        summary:
+            "Website bán các sản phẩm khô có đa dạng mẫu mã, chất lượng và giá cả phù hợp.",
+        result:
+            "Tăng 35% tỷ lệ hoàn tất đơn hàng nhờ tối ưu quy trình mua và thanh toán nhanh.",
+        stack: "Next.js, TailwindCSS, Supabase",
+    },
 ];
 
 const webApplicationProjects = [
     {
         name: "U-Work",
         industry: "CRM · Chấm công online",
-        image: "/images/projects/u-work.svg",
+        image: "/images/projects/uwork.png",
         imageAlt: "Ảnh đại diện dự án U-Work",
         summary:
             "Nền tảng CRM tích hợp chấm công online, quản lý nhân sự, theo dõi hiệu suất và lịch sử chăm sóc khách hàng theo từng đội.",
@@ -177,7 +188,7 @@ const webApplicationProjects = [
     {
         name: "Edutify",
         industry: "EdTech · E-Learning",
-        image: "/images/projects/edutify.svg",
+        image: "/images/projects/edutify.png",
         imageAlt: "Ảnh đại diện dự án Edutify",
         summary:
             "Hệ thống E-Learning cho quản lý khóa học, bài giảng video, bài kiểm tra và theo dõi tiến độ học viên theo lớp.",

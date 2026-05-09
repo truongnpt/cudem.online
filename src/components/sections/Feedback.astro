@@ -1,0 +1,237 @@
+---
+import Container from "../shared/Container.astro";
+import Paragraph from "../shared/Paragraph.astro";
+import Title from "../shared/Title.astro";
+
+const feedbacks = [
+  {
+    name: "Anh Minh Tuấn",
+    role: "Founder - Future Accounting",
+    content:
+      "Đội ngũ tư vấn rất có tâm, website mới giúp tăng lead từ Google rõ rệt chỉ sau vài tuần.",
+  },
+  {
+    name: "Chị Ngọc Anh",
+    role: "Marketing Manager - Hack Game",
+    content:
+      "Giao diện đẹp, tốc độ tải trang nhanh và dễ cập nhật nội dung. Tăng tỷ lệ hoàn tất đơn hàng nhờ tối ưu quy trình mua và thanh toán nhanh.",
+  },
+  {
+    name: "Anh Quang Huy",
+    role: "Admin - Ốc bươu vàng",
+    content:
+      "Quy trình làm việc rõ ràng, báo cáo tiến độ đầy đủ. Giảm hơn 50% thao tác xử lý đơn thủ công, tăng tốc độ giao account cho khách trong ngày.",
+  },
+  {
+    name: "Chị Thanh Hà",
+    role: "Manager - Edutify",
+    content:
+      "Website mới chuẩn SEO và hiển thị rất tốt trên điện thoại. Tăng tỷ lệ khách để lại thông tin tư vấn và đặt lịch online.",
+  },
+  {
+    name: "Anh Hoàng Nam",
+    role: "Manager - U-Work (Đà Nẵng)",
+    content:
+      "Từ lúc triển khai website mới, phụ huynh đăng ký tư vấn online thuận tiện hơn nhiều. Tăng tỷ lệ đăng ký tư vấn và đặt lịch online.",
+  },
+];
+---
+
+<section id="feedback" class="relative">
+  <Container>
+    <div class="max-w-3xl">
+      <Title>Feedback từ khách hàng</Title>
+      <Paragraph className="mt-6">
+        Những phản hồi thực tế từ khách hàng đã sử dụng dịch vụ thiết kế website
+        tại Nờ Pê Tê.
+      </Paragraph>
+    </div>
+
+    <div
+      class="feedback-carousel-wrap mt-10 flex items-center gap-4 sm:gap-5 lg:gap-6"
+      data-feedback-carousel-wrap
+    >
+      <button
+        type="button"
+        class="feedback-swiper-prev swiper-button-prev shrink-0 [&_.swiper-navigation-icon]:!w-[50%] [&_.swiper-navigation-icon]:!h-[50%]"
+        aria-label="Feedback trước"></button>
+      <div class="relative min-w-0 flex-1">
+        <div
+          class="feedback-carousel swiper overflow-hidden pb-12 md:pb-14"
+          data-feedback-carousel
+          aria-roledescription="carousel"
+          aria-label="Danh sách feedback khách hàng"
+        >
+          <div class="swiper-wrapper">
+            {
+              feedbacks.map((item) => (
+                <article
+                  class="swiper-slide !h-auto p-5 sm:p-6 rounded-2xl border border-box-border bg-box-bg shadow-md shadow-box-shadow"
+                >
+                  <div
+                    class="flex items-center gap-1 text-[#f59e0b]"
+                    aria-hidden="true"
+                  >
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                  </div>
+                  <p class="mt-4 text-heading-2 leading-relaxed">"{item.content}"</p>
+                  <div class="mt-5">
+                    <div class="flex items-center gap-2 text-[#f59e0b]">
+                     <div class="size-8 p-1.5 flex items-center justify-center rounded-full bg-primary/[0.1]">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+                     </div>
+                      <p class="font-semibold text-heading-1">{item.name}</p>
+                    </div>
+                    <p class="text-sm text-heading-3 mt-1">{item.role}</p>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+          <div class="feedback-swiper-pagination swiper-pagination"></div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="feedback-swiper-next swiper-button-next shrink-0 [&_.swiper-navigation-icon]:!w-[50%] [&_.swiper-navigation-icon]:!h-[50%]"
+        aria-label="Feedback sau"></button>
+    </div>
+  </Container>
+</section>
+
+<style is:global>
+  .feedback-carousel .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .feedback-carousel .feedback-swiper-pagination {
+    position: relative;
+    bottom: auto;
+    margin-top: 2rem;
+  }
+
+  .feedback-carousel .feedback-swiper-pagination .swiper-pagination-bullet {
+    background: rgb(var(--heading-3) / 0.35);
+    opacity: 1;
+  }
+
+  .feedback-carousel
+    .feedback-swiper-pagination
+    .swiper-pagination-bullet-active {
+    background: var(--color-primary, #279824);
+    transform: scale(1.1);
+  }
+
+  .feedback-carousel-wrap > .swiper-button-prev,
+  .feedback-carousel-wrap > .swiper-button-next {
+    position: relative;
+    inset: auto;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    transform: none;
+    z-index: 20;
+    color: var(--color-primary, #279824);
+    border-radius: 9999px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(var(--box-border));
+    background-color: rgb(var(--color-box));
+    box-shadow:
+      0 10px 15px -3px rgb(var(--box-sd)),
+      0 4px 6px -4px rgb(var(--box-sd) / 0.6);
+    transition:
+      opacity 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .feedback-carousel-wrap > .swiper-button-prev:hover,
+  .feedback-carousel-wrap > .swiper-button-next:hover {
+    opacity: 0.95;
+    transform: translateY(-1px);
+    color: var(--color-white, #fff);
+    border-color: var(--color-primary, #279824);
+    background-color: var(--color-primary, #279824);
+  }
+
+  .feedback-carousel-wrap > .swiper-button-prev::after,
+  .feedback-carousel-wrap > .swiper-button-next::after {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 639px) {
+    .feedback-carousel-wrap > .feedback-swiper-prev,
+    .feedback-carousel-wrap > .feedback-swiper-next {
+      display: none !important;
+    }
+
+    .feedback-carousel-wrap {
+      gap: 0;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+
+  const SELECTOR = "[data-feedback-carousel]";
+
+  function mountCarousel() {
+    const el = document.querySelector(SELECTOR) as HTMLElement | null;
+    if (!el || !(el instanceof HTMLElement)) return;
+
+    const typed = el as HTMLElement & {
+      swiper?: { destroy?: (b?: boolean, c?: boolean) => void };
+    };
+    typed.swiper?.destroy?.(true, true);
+
+    const pagination = el.querySelector<HTMLElement>(".feedback-swiper-pagination");
+    const wrap = el.closest<HTMLElement>("[data-feedback-carousel-wrap]");
+    const prev =
+      wrap?.querySelector<HTMLElement>(".feedback-swiper-prev") ?? undefined;
+    const next =
+      wrap?.querySelector<HTMLElement>(".feedback-swiper-next") ?? undefined;
+
+    new Swiper(el, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      watchOverflow: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 22,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        },
+      },
+      pagination: {
+        el: pagination,
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        prevEl: prev,
+        nextEl: next,
+      },
+    });
+  }
+
+  mountCarousel();
+  document.addEventListener("astro:page-load", mountCarousel);
+</script>
