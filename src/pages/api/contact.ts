@@ -26,11 +26,11 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const smtpHost = import.meta.env.SMTP_HOST;
+    const smtpHost = import.meta.env.VELCEL_SMTP_HOST;
     const smtpPort = Number(import.meta.env.SMTP_PORT ?? 587);
-    const smtpUser = import.meta.env.SMTP_USER;
-    const smtpPass = import.meta.env.SMTP_PASS;
-    const mailTo = import.meta.env.CONTACT_TO_EMAIL ?? smtpUser;
+    const smtpUser = import.meta.env.VELCEL_SMTP_USER;
+    const smtpPass = import.meta.env.VELCEL_SMTP_PASS;
+    const mailTo = import.meta.env.VELCEL_CONTACT_TO_EMAIL ?? smtpUser;
 
     if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
       return new Response(

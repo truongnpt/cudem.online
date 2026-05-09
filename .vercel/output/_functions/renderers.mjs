@@ -1,4 +1,4 @@
-import React, { createElement } from 'react';
+import React, { memo, createElement } from 'react';
 import ReactDOM from 'react-dom/server';
 
 const contexts = /* @__PURE__ */ new WeakMap();
@@ -28,7 +28,7 @@ const StaticHtml = ({
   name,
   hydrate = true
 }) => {
-  if (!value) return null;
+  if (value == null || value.trim() === "") return null;
   const tagName = hydrate ? "astro-slot" : "astro-static-slot";
   return createElement(tagName, {
     name,
@@ -36,8 +36,7 @@ const StaticHtml = ({
     dangerouslySetInnerHTML: { __html: value }
   });
 };
-StaticHtml.shouldComponentUpdate = () => false;
-var static_html_default = StaticHtml;
+var static_html_default = memo(StaticHtml, () => true);
 
 const slotName = (str) => str.trim().replace(/[-_]([a-z])/g, (_, w) => w.toUpperCase());
 const reactTypeof = /* @__PURE__ */ Symbol.for("react.element");
@@ -122,6 +121,10 @@ async function renderToStaticMarkup(Component, props, { default: children, ...sl
   } else {
     html = await renderToPipeableStreamAsync(vnode, renderOptions);
   }
+  html = html.replace(
+    /<link\s[^>]*rel="(?:preload|modulepreload|stylesheet|preconnect|dns-prefetch)"[^>]*>/g,
+    ""
+  );
   return { html, attrs };
 }
 async function getFormState({
