@@ -1,1 +1,66 @@
-// Contents removed by Astro as it's used for prerendering only
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from '../chunks/astro/server_C3auuEWL.mjs';
+import 'piccolore';
+/* empty css                                    */
+import { $ as $$Layout, a as $$Container, c as $$Paragraph, b as $$BtnLink, s as services } from '../chunks/Layout_DdMl-pcr.mjs';
+import { $ as $$Service } from '../chunks/Service_C9ONi2oP.mjs';
+import { $ as $$CTA } from '../chunks/CTA_6qNFv4WB.mjs';
+import { $ as $$ComtactForm } from '../chunks/ComtactForm_CBPtv-9l.mjs';
+export { renderers } from '../renderers.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "D\u1ECBch v\u1EE5 thi\u1EBFt k\u1EBF website" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="relative flex flex-col gap-y-24 md:gap-y-32 overflow-hidden pt-28 lg:pt-36 pb-12 md:pb-20">  <div aria-hidden="true" class="pointer-events-none fixed inset-x-0 top-0 -z-30 h-[min(85vh,640px)]"> <div class="absolute inset-0 bg-gradient-to-b from-primary/[0.11] via-primary/[0.03] dark:from-primary/[0.18] dark:via-primary/[0.05] dark:to-transparent to-transparent"></div> <div class="absolute left-[-18%] top-[8%] h-[clamp(260px,40vw,420px)] w-[clamp(260px,40vw,420px)] rounded-full bg-gradient-to-br from-teal-200/55 via-primary/25 to-transparent blur-3xl dark:from-teal-900/35 dark:via-primary/35"></div> <div class="absolute right-[-14%] top-[28%] h-[clamp(220px,32vw,360px)] w-[clamp(220px,32vw,360px)] rounded-full bg-gradient-to-tl from-amber-200/40 via-primary/20 to-transparent blur-3xl dark:from-amber-900/40 dark:via-primary/28"></div> </div>  <section aria-labelledby="services-heading" class="relative"> ${renderComponent($$result2, "Container", $$Container, {}, { "default": ($$result3) => renderTemplate` <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-20"> <div class="space-y-8 lg:col-span-7"> <nav aria-label="Breadcrumb" class="flex flex-wrap items-center gap-x-3 gap-y-2"> <a href="/" class="rounded-full bg-box-bg/80 px-2 py-1 text-sm font-medium text-heading-3 shadow-sm ring-1 ring-box-border backdrop-blur-sm transition hover:text-primary hover:ring-primary/30 dark:bg-box-bg/60">Trang chủ</a> <span class="text-heading-3 opacity-60" aria-hidden="true">/</span> <span class="rounded-full bg-primary/10 px-2 py-1 text-sm font-semibold text-primary ring-1 ring-primary/25">Dịch vụ</span> </nav> <div class="space-y-6 pb-4"> <p class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm">
+Studio thiết kế website & chuyển đổi
+</p> <h1 id="services-heading" class="text-balance text-[2rem] leading-[1.14] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.11] md:text-5xl md:leading-[1.06]">
+Dịch vụ phù hợp cho từng giai đoạn của${" "} <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-[12%] via-primary via-[38%] to-emerald-600">
+doanh nghiệp
+</span>${" "}
+trên internet
+</h1> <div class="max-w-xl space-y-5 text-heading-3 text-[1.05rem] leading-[1.7] md:text-lg md:leading-relaxed"> ${renderComponent($$result3, "Paragraph", $$Paragraph, { "className": "!text-heading-3 !leading-[1.7] md:!text-lg md:!leading-relaxed" }, { "default": ($$result4) => renderTemplate`
+Ba đường triển khai cốt lõi — website doanh nghiệp, landing
+                  chuyển đổi và ecommerce — được giữ trong quy trình QA, đo
+                  lường sau live và sẵn sàng bung nội dung/dữ liệu khi đội bạn
+                  lớn dần.
+` })} ${renderComponent($$result3, "Paragraph", $$Paragraph, { "className": "!text-heading-3 !leading-[1.7] md:!text-lg md:!leading-relaxed opacity-[0.92]" }, { "default": ($$result4) => renderTemplate`
+Chọn thẻ bên dưới là đủ; nếu bạn chưa chắc, cứ nhắn một dòng
+                  brief — chúng tôi phản hồi hướng đi và phạm vi giai đoạn 1
+                  thay cho vòng chỉnh sửa không đáy.
+` })} </div> <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:flex-wrap sm:items-center"> ${renderComponent($$result3, "BtnLink", $$BtnLink, { "href": "#services-grid", "variant": "primary", "text": "Kh\xE1m ph\xE1 d\u1ECBch v\u1EE5" })} ${renderComponent($$result3, "BtnLink", $$BtnLink, { "variant": "secondary", "text": "\u0110\u1EB7t brief trong 60 gi\xE2y", "href": "/contact", "className": "rounded-full border border-box-border bg-white/50 px-6 py-3 transition hover:bg-box-bg hover:backdrop-blur-sm dark:bg-white/[0.04] dark:hover:bg-white/[0.08]" })} </div> </div> </div> <div class="lg:col-span-5"> <img src="/images/right-banner.png" alt="Dịch vụ phù hợp cho từng giai đoạn của doanh nghiệp trên internet" class="w-full h-full object-cover rounded-3xl"> </div> </div> ` })} </section> <!-- Lưới dịch vụ --> <section id="services-grid" class="relative scroll-mt-32" aria-label="Danh sách dịch vụ"> ${renderComponent($$result2, "Container", $$Container, {}, { "default": ($$result3) => renderTemplate` <header class="mx-auto mb-16 max-w-2xl text-center md:max-w-3xl"> <span class="text-xs font-bold uppercase tracking-[0.22em] text-primary/85">Portfolio hướng năng suất</span> <h2 class="mt-4 text-3xl font-bold tracking-tight text-heading-1 sm:text-4xl">
+Chọn dịch vụ của bạn
+</h2> <p class="mt-6 text-heading-3 text-[1.05rem] leading-relaxed md:text-lg mx-auto max-w-xl">
+Mọi ô dưới đây mở ra trang chi tiết: lợi ích trong hợp đồng, đầu
+            vào‑đầu ra bàn giao và quy trình bạn sẽ bám theo tuần tự.
+</p> </header> <div class="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3 items-stretch"> ${services.map((svc, i) => renderTemplate`<a${addAttribute(`/services/${svc.slug}`, "href")} class="group relative flex h-full flex-col rounded-3xl bg-[linear-gradient(135deg,rgb(39_152_36_/_0.45),rgb(16_185_129_/_0.12),rgb(245_158_11_/_0.15))] p-px outline-none ring-offset-4 transition hover:shadow-[0_24px_50px_-20px_rgb(39_152_36_/_0.38)] hover:shadow-primary/45 focus-visible:ring-4 focus-visible:ring-primary/40 dark:bg-[linear-gradient(135deg,rgb(39_152_36_/_0.35),rgb(16_185_129_/_0.2),rgb(245_158_11_/_0.12))]"> <span class="pointer-events-none absolute left-10 top-[4.75rem] z-0 select-none text-[7rem] font-black leading-none text-heading-1/[0.06] transition group-hover:text-primary/[0.14] md:text-[8rem]" aria-hidden="true"> ${String(i + 1).padStart(2, "0")} </span> <div class="relative z-[1] flex h-full flex-1 flex-col overflow-hidden rounded-[1.4375rem] border border-transparent bg-white/75 shadow-lg shadow-heading-1/[0.04] backdrop-blur-md transition-colors group-hover:border-primary/35 dark:bg-box-bg/85 dark:shadow-black/40 dark:group-hover:border-primary/45"> ${renderComponent($$result3, "Service", $$Service, { "title": svc.title, "description": svc.description, "icon": svc.icon, "embedded": true })} <div class="flex shrink-0 items-center justify-between gap-4 border-t border-box-border/70 px-8 pb-7 pt-5 sm:px-8 lg:px-10"> <span class="text-sm font-semibold text-heading-2 md:text-[0.9375rem]">
+Chi tiết dịch vụ
+</span> <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-box-border bg-body/95 text-heading-2 transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white dark:bg-white/[0.04]"> <svg xmlns="http://www.w3.org/2000/svg" class="size-[1.125rem] transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2.25" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-5-5m5 5l-5 5"></path> </svg> </span> </div> </div> </a>`)} </div> ` })} </section> <!-- Hướng dẫn chọn --> <section class="relative"> ${renderComponent($$result2, "Container", $$Container, {}, { "default": ($$result3) => renderTemplate` <div class="overflow-hidden rounded-[2rem] border border-white/65 bg-gradient-to-br from-white/90 via-gray-50/80 to-emerald-50/45 p-px shadow-xl shadow-heading-1/[0.06] backdrop-blur-sm dark:border-white/[0.08] dark:from-[#141c31]/92 dark:via-[#0f172a]/90 dark:to-emerald-950/30 dark:shadow-black/55 md:rounded-[2.25rem]"> <div class="rounded-[1.9375rem] px-8 py-12 md:rounded-[2.1875rem] md:px-12 md:py-14 lg:px-16 lg:py-16"> <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-24"> <div class="relative space-y-6 lg:col-span-7"> <span class="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Định vị đúng vai trò</span> <h2 class="text-3xl font-bold tracking-tight text-heading-1 sm:text-4xl">
+Bạn đang đứng ở cửa ngõ nào?
+</h2> ${renderComponent($$result3, "Paragraph", $$Paragraph, { "className": "max-w-xl !text-heading-3 !leading-[1.72] md:!text-[1.05rem] md:!leading-relaxed" }, { "default": ($$result4) => renderTemplate`
+Ba hướng trên không xếp loại hay/bét — chúng hỗ trợ các giai
+                  đoạn funnel khác nhau. Cho chúng tôi một dòng khó khăn của
+                  bạn, và chúng ta sẽ chọn hướng ít sai nhất trước khi làm những
+                  chức năng không dùng tới sau này.
+` })} <div class="max-w-xl space-y-4 pt-2"> <div class="flex gap-4"> <span class="mt-1 grid size-11 shrink-0 place-content-center rounded-2xl bg-primary/15 font-bold text-primary">&check;</span> <p class="text-heading-3 leading-relaxed">
+Hai bên có thể không phải cùng từ vựng sản phẩm nhưng có
+                      cùng bảng nghiệm thu theo chỉ báo đã ghim.
+</p> </div> <div class="flex gap-4"> <span class="mt-1 grid size-11 shrink-0 place-content-center rounded-2xl bg-primary/15 font-bold text-primary">&check;</span> <p class="text-heading-3 leading-relaxed">
+Bản xem thử các màn ảnh hưởng chuyển đổi trước khi vào một
+                      loạt màn nhỏ lẻ không rõ KPI.
+</p> </div> </div> <div class="pointer-events-none absolute -bottom-28 -left-36 h-[14rem] w-[14rem] rounded-full bg-primary/12 blur-[80px]"></div> </div> <div class="relative flex flex-col justify-between gap-6 rounded-3xl bg-white/72 p-8 shadow-inner shadow-white/40 backdrop-blur-md ring-1 ring-primary/25 dark:bg-box-bg/75 dark:shadow-black/55 dark:ring-primary/35 lg:col-span-5"> <div> <p class="text-lg font-semibold text-heading-2">
+Gói trên trang chủ
+</p> <p class="mt-3 text-[0.95rem] leading-relaxed text-heading-3">
+Sau khi chọn dịch vụ, bạn có thể đối chiếu nhanh với <strong class="text-heading-2">các gói giá công khai</strong> hoặc gửi form để nhận timeline rõ mốc cho dự án tuỳ chỉnh.
+</p> </div> <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap"> ${renderComponent($$result3, "BtnLink", $$BtnLink, { "variant": "secondary", "text": "Xem g\xF3i & gi\xE1", "href": "/#package-services", "className": "justify-center rounded-full border border-box-border bg-white/80 px-6 py-3 dark:bg-white/[0.06]" })} ${renderComponent($$result3, "BtnLink", $$BtnLink, { "href": "/contact", "variant": "primary", "text": "Li\xEAn h\u1EC7 t\u01B0 v\u1EA5n", "className": "justify-center" })} </div> </div> </div> </div> </div> ` })} </section> ${renderComponent($$result2, "CTA", $$CTA, {})} ${renderComponent($$result2, "ComtactForm", $$ComtactForm, {})} </main> ` })}`;
+}, "/Users/npttruong/projects/npt-project/nopete.com/src/pages/services/index.astro", void 0);
+
+const $$file = "/Users/npttruong/projects/npt-project/nopete.com/src/pages/services/index.astro";
+const $$url = "/services";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
