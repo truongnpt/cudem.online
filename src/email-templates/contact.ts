@@ -32,12 +32,14 @@ export const getContactTemplate = ({
             <td align="center"
               style="background:#279824; padding:30px 20px; color:#ffffff;">
 
+              <div style="display:flex; justify-content:center; align-items:center; padding: 5px; background-color: #ffffff; border-radius: 5px; width: 70px; height: 70px;">
               <img
                 src="${import.meta.env.VERCEL_URL_APP}${app.logo}"
                 alt="Logo"
                 width="70"
-                style="display:block; margin-bottom:15px;"
+                style="display:block;"
               />
+              </div>
 
               <h1 style="margin:0; font-size:28px; font-weight:bold;">
                 ${app.name}
