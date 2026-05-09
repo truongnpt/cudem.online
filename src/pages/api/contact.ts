@@ -26,11 +26,11 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const smtpHost = import.meta.env.VELCEL_SMTP_HOST;
-    const smtpPort = Number(import.meta.env.SMTP_PORT ?? 587);
-    const smtpUser = import.meta.env.VELCEL_SMTP_USER;
-    const smtpPass = import.meta.env.VELCEL_SMTP_PASS;
-    const mailTo = import.meta.env.VELCEL_CONTACT_TO_EMAIL ?? smtpUser;
+    const smtpHost = import.meta.env.VERCEL_SMTP_HOST ?? "smtp.gmail.com";
+    const smtpPort = Number(import.meta.env.VERCEL_SMTP_PORT ?? 587);
+    const smtpUser = import.meta.env.VERCEL_SMTP_USER ?? "truongnpt1998@gmail.com";
+    const smtpPass = import.meta.env.VERCEL_SMTP_PASS ?? "otqaftcckelfemfc";
+    const mailTo = import.meta.env.VERCEL_CONTACT_TO_EMAIL ?? smtpUser;
 
     if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
       return new Response(
@@ -53,7 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     await transporter.sendMail({
-      from: import.meta.env.CONTACT_FROM_EMAIL ?? smtpUser,
+      from: import.meta.env.VERCEL_CONTACT_FROM_EMAIL ?? smtpUser,
       to: mailTo,
       replyTo: email,
       subject: `[Liên hệ website] ${subject}`,
