@@ -26,6 +26,7 @@ const { title, noindex = false } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" imagesrcset={import.meta.env.VERCEL_URL_APP + app.logo} as="image" />
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
