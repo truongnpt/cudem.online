@@ -1,9 +1,9 @@
 export const app = {
-    webcomeMessage: "Welcome to Nờ Pê Tê",
-    name: "Nờ Pê Tê",
-    description: "Nờ Pê Tê - Dịch vụ thiết kế website chuyên nghiệp",
+    webcomeMessage: "Chào mừng bạn đến với Cú Đêm website",
+    name: "Cú Đêm",
+    description: "Cú Đêm - Dịch vụ thiết kế website chuyên nghiệp",
     url: "https://nopete.com",
-    logo: "/logos/logo.png",
+    logo: "/logos/cu-dem-logo.png",
     footer: {
         description: "Chúng tôi đồng hành thiết kế và phát triển website chuyên nghiệp, tối ưu trải nghiệm và chuyển đổi giúp thương hiệu của bạn hiện diện hiệu quả trên môi trường số.",
         copyright: "Mọi quyền được bảo lưu.",

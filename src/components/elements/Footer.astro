@@ -43,11 +43,22 @@ const footerCompany = [
     itemLink: "/#partners",
   },
 ];
+
+const footerContact = [
+  {
+    itemText: "Email: truongnpt1998@...",
+    itemLink: "mailto:truongnpt1998@gmail.com",
+  },
+  {
+    itemText: "Số điện thoại: 0399812700",
+    itemLink: "tel:0399812700",
+  }
+];
 ---
 
 <div class="mt-16"></div>
 <footer
-  class="relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-transparent pt-28 rounded-t-3xl"
+  class="relative bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-transparent pt-16 lg:pt-28 rounded-t-3xl"
 >
   <div class="absolute right-0 top-0 h-full w-full flex justify-end">
     <div class="w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl">
@@ -86,10 +97,10 @@ const footerCompany = [
       <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
         <div class="h-full">
           <a href="/" class="relative flex items-center gap-3">
-            <img src={app.logo} alt={app.name} class="w-7 h-7" />
-            <div class="inline-flex text-lg font-semibold text-heading-1">
+            <img src={app.logo} alt={app.name} class="w-20 h-20" />
+            <!-- <div class="inline-flex text-lg font-semibold text-heading-1">
               {app.name}
-            </div>
+            </div> -->
           </a>
           <Paragraph className={"mt-8"}>
             {app.footer.description}
@@ -97,7 +108,7 @@ const footerCompany = [
         </div>
 
         <!-- social links -->
-        <div class="min-h-max flex items-center gap-4 text-heading-3 mt-8">
+        <!-- <div class="min-h-max flex items-center gap-4 text-heading-3 mt-8">
           {
             Object.values(app.footer.socials).map((social) => (
               <a
@@ -110,16 +121,17 @@ const footerCompany = [
               </a>
             ))
           }
-        </div>
+        </div> -->
       </div>
 
       <GroupFooterNav>
-        <FooterNav title={"Công ty"} navItems={footerCompany} />
+        <FooterNav title={"Tổng quan"} navItems={footerCompany} />
         <FooterNav title={"Dịch vụ"} navItems={footerNav1} />
       </GroupFooterNav>
 
       <GroupFooterNav>
         <FooterNav title={"Hỗ trợ"} navItems={footerSupport} />
+        <FooterNav title={"Liên hệ"} navItems={footerContact} />
       </GroupFooterNav>
     </div>
   </Container>
@@ -128,12 +140,12 @@ const footerCompany = [
       <div
         class="flex justify-between items-center gap-6 md:text-lg text-heading-3"
       >
-        <div>
+        <div class="text-sm md:text-base">
           &copy; <span id="year">{new Date().getFullYear()}</span>
           {app.name}. {app.footer.copyright}
         </div>
-        <div class="text-right max-md:text-left">
-          Giao diện website phát triển bởi{" "}
+        <div class="text-right max-md:text-left text-sm md:text-base">
+          Được phát triển bởi{" "}
           <span class="font-semibold text-heading-2">{app.footer.author}</span>
         </div>
       </div>

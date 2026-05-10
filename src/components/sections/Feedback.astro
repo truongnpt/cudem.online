@@ -2,7 +2,7 @@
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-
+import { app } from "../../configs/app";
 const feedbacks = [
   {
     name: "Anh Minh Tuấn",
@@ -43,7 +43,7 @@ const feedbacks = [
       <Title>Feedback từ khách hàng</Title>
       <Paragraph className="mt-6">
         Những phản hồi thực tế từ khách hàng đã sử dụng dịch vụ thiết kế website
-        tại Nờ Pê Tê.
+        tại {app.name}.
       </Paragraph>
     </div>
 

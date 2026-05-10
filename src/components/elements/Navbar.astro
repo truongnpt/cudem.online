@@ -50,14 +50,15 @@ const navItems = [
       data-nav-shell
       class="overflow-visible rounded-full border border-transparent px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out"
     >
+      <div class="bg-cu-dem-gradient transition-all duration-300 ease-out w-20 h-20 dark:bg-gradient-to-r from-primary to-green-500 rounded-full absolute left-[12%] top-[15%] blur-2xl"></div>
       <nav class="w-full flex justify-between items-center gap-6 relative">
         <!-- logo -->
         <div class="min-w-max inline-flex relative z-50">
           <a href="/" class="relative flex items-center gap-3">
             <img src={app.logo} alt={app.name} width="40" height="40" />
-            <h1 class="inline-flex text-lg font-semibold text-heading-1">
+            <!-- <h1 class="inline-flex text-lg font-semibold text-heading-1">
               {app.name}
-            </h1>
+            </h1> -->
           </a>
         </div>
 
@@ -182,9 +183,9 @@ const navItems = [
             height="40"
             class="size-10 shrink-0"
           />
-          <span class="truncate text-lg font-semibold text-heading-1">
+          <!-- <span class="truncate text-lg font-semibold text-heading-1">
             {app.name}
-          </span>
+          </span> -->
         </a>
         <button
           type="button"
@@ -443,6 +444,10 @@ const navItems = [
     top: 0.75rem;
     left: 0;
     right: 0;
+  }
+
+  .nav-header.nav-header--pinned .bg-cu-dem-gradient {
+    display: none;
   }
 
   .nav-header-inner {
