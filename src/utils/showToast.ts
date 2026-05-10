@@ -24,7 +24,7 @@ export function showToast(text: string, options?: ShowToastOptions): void {
     variant = "success",
     duration = 4500,
     gravity = "top",
-    position = "right",
+    position = "center",
   } = options ?? {};
 
   Toastify({
@@ -36,6 +36,7 @@ export function showToast(text: string, options?: ShowToastOptions): void {
     style: {
       background: variantBackground[variant],
       boxShadow: "0 4px 14px rgb(0 0 0 / 0.15)",
+      borderRadius: "10px",
     },
   }).showToast();
 }
