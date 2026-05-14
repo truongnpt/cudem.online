@@ -51,42 +51,47 @@ import { app } from "../configs/app";
                     >
                 </nav>
 
-                <header class="mt-10 max-w-3xl space-y-5">
-                    <p
-                        class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm"
-                    >
-                        {app.name} · Website &amp; Chuyển đổi
-                    </p>
-                    <h1
-                        id="about-heading"
-                        class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl"
-                    >
-                        Chúng tôi tin website phải trả lời được{" "}
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-[12%] via-primary via-[38%] to-emerald-600"
-                            >đồng hồ doanh thu</span
+                <div class="mt-10 grid lg:grid-cols-2 gap-4">
+                    <header class=" space-y-5">
+                        <p
+                            class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm"
                         >
-                        , không chỉ portfolio thiết kế
-                    </h1>
-                    <Paragraph
-                        className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg"
-                    >
-                        Những nhóm chúng tôi làm việc cùng thường kỳ vọng cùng một
-                        thứ: người dùng tìm thấy thông tin và hành động được — dù là
-                        đặt demo, nhận lead hay mua trong một phiên đọc thoải mái.
-                        Chúng tôi gắn quyết định thiết kế với chỉ báo đo được và nợ
-                        kỹ thuật rõ trong proposal.
-                    </Paragraph>
-                    <div class="flex flex-wrap gap-4 pt-1">
-                        <BtnLink href="#cau-chuyen" variant="primary" text="Đọc câu chuyện" />
-                        <BtnLink
-                            href="/contact/#contact"
-                            variant="secondary"
-                            text="Trò chuyện ngắn"
-                            className="rounded-full border border-box-border bg-white/55 backdrop-blur-sm dark:bg-white/[0.04]"
-                        />
+                            {app.name} · Website &amp; Chuyển đổi
+                        </p>
+                        <h1
+                            id="about-heading"
+                            class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl"
+                        >
+                            Chúng tôi tin website phải trả lời được{" "}
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-[12%] via-primary via-[38%] to-emerald-600"
+                                >đồng hồ doanh thu</span
+                            >
+                            , không chỉ portfolio thiết kế
+                        </h1>
+                        <Paragraph
+                            className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg"
+                        >
+                            Những nhóm chúng tôi làm việc cùng thường kỳ vọng cùng một
+                            thứ: người dùng tìm thấy thông tin và hành động được — dù là
+                            đặt demo, nhận lead hay mua trong một phiên đọc thoải mái.
+                            Chúng tôi gắn quyết định thiết kế với chỉ báo đo được và nợ
+                            kỹ thuật rõ trong proposal.
+                        </Paragraph>
+                        <div class="flex flex-wrap gap-4 pt-1">
+                            <BtnLink href="#cau-chuyen" variant="primary" text="Đọc câu chuyện" />
+                            <BtnLink
+                                href="/contact/#contact"
+                                variant="secondary"
+                                text="Trò chuyện ngắn"
+                                className="rounded-full border border-box-border bg-white/55 backdrop-blur-sm dark:bg-white/[0.04]"
+                            />
+                        </div>
+                    </header>
+                    <div class="flex-1 flex justify-center items-center">
+                        <img src="/images/icon-cudem.png" alt="Về chúng tôi" width="500" height="500" />
                     </div>
-                </header>
+                </div>
             </Container>
         </section>
 
