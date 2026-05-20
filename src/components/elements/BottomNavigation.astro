@@ -1,0 +1,7 @@
+---
+import BottomNavigationReact from "../react/BottomNavigation";
+
+const currentPath = Astro.url.pathname;
+---
+
+<BottomNavigationReact client:load currentPath={currentPath} />
