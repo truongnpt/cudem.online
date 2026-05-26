@@ -4,7 +4,18 @@ import Container from "../shared/Container.astro";
 import Navitem from "../shared/Navitem.astro";
 import { app } from "../../configs/app";
 import { services, projects } from "../../utils/data";
-const navItems = [
+
+type NavItem = {
+  href: string;
+  text: string;
+  target?: string;
+  children?: {
+    href: string;
+    text: string;
+  }[];
+};
+
+const navItems: NavItem[] = [
   {
     href: "/",
     text: "Trang chủ",
@@ -34,9 +45,8 @@ const navItems = [
     text: "Về chúng tôi",
   },
   {
-    href: "https://the-gioi-kho.vercel.app",
-    text: "Cửa hàng",
-    target: "_blank",
+    href: "/store",
+    text: "Cửa hàng"
   },
 ];
 ---
@@ -48,17 +58,18 @@ const navItems = [
   <Container className="nav-header-inner py-6 sm:py-6">
     <div
       data-nav-shell
-      class="overflow-visible rounded-full border border-transparent px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out"
+      class="overflow-visible rounded-full border border-transparent bg-white/90 px-3 sm:px-5 lg:px-3 py-2 sm:py-2.5 shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out dark:bg-box-bg/90"
     >
       <div class="bg-cu-dem-gradient transition-all duration-300 ease-out w-20 h-20 dark:bg-gradient-to-r from-primary to-green-500 rounded-full absolute left-[12%] top-[15%] blur-2xl"></div>
       <nav class="w-full flex justify-between items-center gap-6 relative">
         <!-- logo -->
         <div class="min-w-max inline-flex relative z-50">
-          <a href="/" class="relative flex items-center gap-3">
+          <a href="/" class="relative flex items-center gap-0">
             <img src={app.logo} alt={app.name} width="40" height="40" />
-            <!-- <h1 class="inline-flex text-lg font-semibold text-heading-1">
-              {app.name}
-            </h1> -->
+            <div class="flex flex-col gap-1 items-start justify-end text-lg font-semibold text-heading-1 !h-[52px]">
+              <h3 class="text-primary text-lg leading-none">{app.service}</h3>
+              <h3 class="text-black text-xs leading-none">{app.online}</h3>
+            </div>
           </a>
         </div>
 
@@ -80,7 +91,6 @@ const navItems = [
                   <Navitem
                     {...item}
                     submenuInstanceId={`d-${i}`}
-                    target={item.target}
                   />
                 );
               })
@@ -219,7 +229,6 @@ const navItems = [
               <Navitem
                 {...item}
                 submenuInstanceId={`m-${i}`}
-                target={item.target}
               />
             );
           })

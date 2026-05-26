@@ -251,10 +251,49 @@ const packageServices = [
     },
 ];
 
+const productCategories = [
+    {
+        value: "plugin-wordpress",
+        name: "Plugin Wordpress",
+    },
+];
+
+const productTags = ["Plugin", "Wordpress", "Website wordpress", "Plugin Pro", "Plugin Free"];
+
+const products = [
+    {
+        name: "Cu Dem - Float Button",
+        slug: "cu-dem-float-button",
+        priceVnd: 0,
+        promotionPercent: 0,
+        category: "plugin-wordpress",
+        tags: ["Plugin Free", "Wordpress", "Plugin"],
+        images: ["/images/products/cu-dem-float-button.png","/images/products/cu-dem-float-button-pro.png"],
+        count: 100,
+        description:
+            "Plugin tạo nút nổi liên hệ nhanh cho website Wordpress, phù hợp để gom các kênh gọi điện, chat và mạng xã hội vào một vị trí dễ thao tác.",
+    },
+    {
+        name: "Cu Dem - Float Button Pro",
+        slug: "cu-dem-float-button-pro",
+        priceVnd: 499_000,
+        promotionPercent: 20,
+        category: "plugin-wordpress",
+        tags: ["Plugin Pro", "Wordpress", "Plugin"],
+        images: ["/images/products/cu-dem-float-button.png","/images/products/cu-dem-float-button-pro.png"],
+        count: 79,
+        description:
+            "Bản Pro mở rộng khả năng tuỳ biến giao diện, tối ưu CTA và cấu hình nâng cao cho các website Wordpress cần chuyển đổi tốt hơn.",
+    },
+];
+
 export {
     services,
     projects,
     websiteProjects,
     webApplicationProjects,
     packageServices,
+    productCategories,
+    productTags,
+    products,
 };

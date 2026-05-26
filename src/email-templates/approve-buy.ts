@@ -1,0 +1,63 @@
+import { app } from "../configs/app";
+
+type ApproveBuyTemplateParams = {
+  productName: string;
+  fileUrl: string;
+};
+
+export const getApproveBuyTemplate = ({
+  productName,
+  fileUrl,
+}: ApproveBuyTemplateParams): string => {
+  return `<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Link tải sản phẩm</title>
+</head>
+<body style="margin:0; padding:0; background:#f4f4f4; font-family:Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f4f4f4; padding:30px 0;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff; border-radius:12px; overflow:hidden;">
+          <tr>
+            <td align="center" style="background:#279824; padding:30px 20px; color:#ffffff;">
+              <div style="display:flex; justify-content:center; align-items:center; padding:5px; background-color:#ffffff; border-radius:5px; width:70px; height:70px;">
+                <img src="${import.meta.env.VERCEL_URL_APP}${app.logo}" alt="Logo" width="70" style="display:block;" />
+              </div>
+              <h1 style="margin:12px 0 0; font-size:28px; font-weight:bold;">${app.name}</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:40px 30px; color:#333333;">
+              <h2 style="margin-top:0; color:#279824;">Link tải sản phẩm</h2>
+              <p style="font-size:16px; line-height:1.7; margin-bottom:20px;">
+                Cảm ơn bạn đã mua sản phẩm <strong>${productName}</strong>.
+              </p>
+              <p style="font-size:16px; line-height:1.7; margin-bottom:24px;">
+                Bạn có thể tải sản phẩm qua nút bên dưới:
+              </p>
+              <div style="margin-top:30px; text-align:center;">
+                <a href="${fileUrl}" style="background:#279824; color:#ffffff; text-decoration:none; padding:14px 28px; border-radius:8px; display:inline-block; font-weight:bold; font-size:16px;">
+                  Tải sản phẩm
+                </a>
+              </div>
+              <p style="font-size:14px; line-height:1.7; color:#666666; margin-top:24px;">
+                Nếu nút không hoạt động, mở link này:<br />
+                <a href="${fileUrl}" style="color:#279824;">${fileUrl}</a>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="background:#f1f1f1; padding:20px; color:#777777; font-size:14px;">
+              © ${new Date().getFullYear()} ${app.name}. ${app.footer.copyright}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+};

@@ -100,11 +100,11 @@ export default function BottomNavigation({ currentPath }: Props) {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-40 lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 sm:hidden"
       aria-label="Điều hướng chính"
     >
-      <div className="relative mx-auto h-[6.2rem] max-w-lg">
-        <div className="relative flex h-full items-end justify-between px-2"
+      <div className="relative mx-auto h-[6.6rem] max-w-lg">
+        <div className="relative flex h-full items-end justify-between px-2 pb-1"
           style={{
             backgroundImage: "url(/images/bottom-nav-white.svg)",
             backgroundSize: "cover",

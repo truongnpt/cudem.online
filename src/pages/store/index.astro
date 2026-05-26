@@ -1,0 +1,26 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import StorePage from "../../components/react/StorePage";
+import { productCategories, productTags } from "../../utils/data";
+
+const selectedCategoryValue = Astro.url.searchParams.get("category");
+const initialCategory = productCategories.some(
+  (category) => category.value === selectedCategoryValue,
+)
+  ? selectedCategoryValue
+  : null;
+const initialTags = Astro.url.searchParams
+  .getAll("tag")
+  .filter((tag) => productTags.includes(tag));
+const initialSearch = Astro.url.searchParams.get("q")?.trim() ?? "";
+---
+
+<Layout title="Cửa hàng">
+  <StorePage
+    client:load
+    initialSearch={initialSearch}
+    initialCategory={initialCategory}
+    initialTags={initialTags}
+  />
+</Layout>

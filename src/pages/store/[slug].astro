@@ -1,0 +1,28 @@
+﻿---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import ProductDetailPage from "../../components/react/ProductDetailPage";
+import { products } from "../../utils/data";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+}
+
+type ProductDetail = (typeof products)[number];
+
+const { slug } = Astro.params;
+const product =
+  slug == null ? undefined : products.find((item) => item.slug === slug);
+
+if (!product) {
+  return Astro.redirect("/store");
+}
+
+const typed = product as ProductDetail;
+---
+
+<Layout title={typed.name}>
+  <ProductDetailPage client:load product={typed} />
+</Layout>

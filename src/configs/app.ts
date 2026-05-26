@@ -1,6 +1,8 @@
 export const app = {
     webcomeMessage: "Chào mừng bạn đến với Cú Đêm website",
     name: "Cú Đêm",
+    online: ".online",
+    service: "Thiết kế website",
     description: "Cú Đêm - Dịch vụ thiết kế website chuyên nghiệp",
     url: "https://nopete.com",
     logo: "/logos/cu-dem-logo.png",
