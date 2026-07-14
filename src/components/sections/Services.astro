@@ -9,7 +9,8 @@ import { services } from "../../utils/data.ts";
 type ServicesProps = {
     title: string;
     description: string;
-    icon: string
+    icon: string;
+    slug: string;
 };
 
 
@@ -22,15 +23,20 @@ type ServicesProps = {
                 Dịch vụ chúng tôi cung cấp
             </Title>
             <Paragraph>
-                Giải pháp thiết kế website toàn diện, từ giao diện, nội dung đến tối ưu hiệu suất để giúp doanh nghiệp tăng chuyển đổi và xây dựng thương hiệu bền vững.
+                Giải pháp số toàn diện — website, landing, ecommerce và mobile app — từ giao diện đến hiệu suất để giúp doanh nghiệp tăng chuyển đổi và vận hành tốt hơn.
             </Paragraph>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
             {
                     services.map((service: ServicesProps) => {
                     return (
+                            <a
+                              href={`/services/${service.slug}`}
+                              class="block h-full rounded-3xl transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary/35"
+                            >
                             <Service title={service.title} description={service.description} icon={service.icon}>
                             </Service>
+                            </a>
                             );
                     })
             }

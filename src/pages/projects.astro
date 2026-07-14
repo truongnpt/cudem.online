@@ -9,7 +9,7 @@ import ComtactForm from "../components/sections/ComtactForm.astro";
 import { projects } from "../utils/data";
 
 type ProjectItem = (typeof projects)[number];
-type ProjectType = "website" | "web-application";
+type ProjectType = "website" | "web-application" | "mobile-app";
 
 const projectTypeMeta: Record<
   ProjectType,
@@ -19,6 +19,7 @@ const projectTypeMeta: Record<
     timeline: string;
     stack: string;
     contactPackageId: string;
+    href: string;
   }
 > = {
   website: {
@@ -27,6 +28,7 @@ const projectTypeMeta: Record<
     timeline: "2-5 tuần",
     stack: "Astro / WordPress / TailwindCSS",
     contactPackageId: "website-doanh-nghiep",
+    href: "/projects/website",
   },
   "web-application": {
     label: "Web application",
@@ -34,18 +36,34 @@ const projectTypeMeta: Record<
     timeline: "4-12 tuần",
     stack: "Next.js / Laravel / PostgreSQL",
     contactPackageId: "web-application",
+    href: "/projects/web-application",
+  },
+  "mobile-app": {
+    label: "Mobile App",
+    badge: "Ứng dụng iOS & Android",
+    timeline: "6-16 tuần",
+    stack: "React Native / Flutter / Native",
+    contactPackageId: "mobile-app",
+    href: "/projects/mobile-app",
   },
 };
 
 const normalizeType = (value: string | null): ProjectType | null => {
-  if (value === "website" || value === "web-application") return value;
+  if (
+    value === "website" ||
+    value === "web-application" ||
+    value === "mobile-app"
+  )
+    return value;
   return null;
 };
 
-const inferType = (project: ProjectItem): ProjectType =>
-  project.title.toLowerCase().includes("application")
-    ? "web-application"
-    : "website";
+const inferType = (project: ProjectItem): ProjectType => {
+  const title = project.title.toLowerCase();
+  if (title.includes("mobile")) return "mobile-app";
+  if (title.includes("application")) return "web-application";
+  return "website";
+};
 
 const selectedType = normalizeType(Astro.url.searchParams.get("type"));
 
@@ -102,7 +120,7 @@ const visibleProjects = selectedType
           >
             Mỗi dự án đều bắt đầu từ vấn đề kinh doanh rõ ràng: tăng chuyển đổi,
             chuẩn hóa quy trình hoặc nâng chất lượng trải nghiệm người dùng trên
-            web.
+            web và mobile.
           </Paragraph>
           <div class="flex flex-wrap gap-3">
             <BtnLink
@@ -123,6 +141,12 @@ const visibleProjects = selectedType
                 ? "primary"
                 : "secondary"}
               text="Web application"
+              className="rounded-full border border-box-border bg-white/60 dark:bg-white/[0.05]"
+            />
+            <BtnLink
+              href="/projects/mobile-app"
+              variant={selectedType === "mobile-app" ? "primary" : "secondary"}
+              text="Mobile App"
               className="rounded-full border border-box-border bg-white/60 dark:bg-white/[0.05]"
             />
           </div>
@@ -192,6 +216,12 @@ const visibleProjects = selectedType
                       href={`/contact?package=${project.contactPackageId}`}
                       variant="primary"
                       text="Nhận tư vấn tương tự"
+                    />
+                    <BtnLink
+                      href={project.href}
+                      variant="secondary"
+                      text="Xem case study"
+                      className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]"
                     />
                     <BtnLink
                       href="/packages"

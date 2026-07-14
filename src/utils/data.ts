@@ -98,6 +98,39 @@ const services = [
         idealFor:
             "Thương hiệu bán retail, FMCG và D2C cần nền tảng ecommerce trên WordPress có thể bảo trì nội bộ sau bàn giao.",
     },
+    {
+        slug: "phat-trien-mobile-app",
+        title: "Phát triển Mobile App",
+        description:
+            "Thiết kế và phát triển ứng dụng iOS & Android theo nghiệp vụ thực tế: theo dõi realtime, onboarding, live data và trải nghiệm người dùng mượt trên mọi thiết bị.",
+        tagline:
+            "Chúng tôi xây app mobile từ brief đến store: UI/UX rõ luồng, backend ổn định và sẵn sàng mở rộng tính năng khi sản phẩm tăng người dùng.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        </svg>`,
+        benefits: [
+            "Một codebase hoặc native stack phù hợp mục tiêu: React Native, Flutter hoặc iOS/Android thuần theo brief.",
+            "Luồng UX mobile-first: onboarding, permission, offline nhẹ và deep link rõ ràng.",
+            "Tích hợp map, push notification, thanh toán và analytics theo nghiệp vụ sản phẩm.",
+            "Hiệu năng mượt trên máy tầm trung — animation và list dài được tối ưu từ sớm.",
+            "Quy trình QA thiết bị thật (iOS + Android) trước khi submit App Store / Google Play.",
+            "Kiến trúc API và state management sẵn sàng mở rộng tính năng sau lần phát hành đầu.",
+        ],
+        deliverables: [
+            "Brief sản phẩm, user flow và wireframe các màn trọng điểm.",
+            "UI kit Figma (light/dark nếu cần) và prototype tương tác.",
+            "App iOS & Android (hoặc cross-platform) kết nối API staging/production.",
+            "Cấu hình push, analytics và checklist nộp store.",
+            "Tài liệu vận hành, bảng nghiệm thu và buổi bàn giao cho đội nội bộ.",
+        ],
+        processSteps: [
+            "Khảo sát nghiệp vụ, persona và ràng buộc store / bảo mật.",
+            "Thiết kế luồng màn hình và đồng thuận prototype trước khi code.",
+            "Phát triển song song app + API, QA liên tục theo sprint.",
+            "Beta test, tối ưu và hỗ trợ submit / go-live trên store.",
+        ],
+        idealFor:
+            "Startup và doanh nghiệp cần app vận hành thực tế — vận tải, HR/engagement, sports live data hoặc sản phẩm consumer có lộ trình lên store rõ.",
+    },
 ];
 
 const projects = [
@@ -113,9 +146,27 @@ const projects = [
         icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a1.5 1.5 0 011.458 1.147l.489 1.956m0 0L6.75 12h10.5l1.5-6H5.583z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.5a.75.75 0 100 1.5.75.75 0 000-1.5zm9 0a.75.75 0 100 1.5.75.75 0 000-1.5z" />
         </svg>`,
     },
+    {
+        title: "Mobile App",
+        description:
+            "Ứng dụng iOS & Android tập trung vào trải nghiệm người dùng, dữ liệu realtime và nghiệp vụ vận hành trên thiết bị di động.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+        </svg>`,
+    },
 ];
 
 const websiteProjects = [
+    {
+        name: "Song Anh Car Travel",
+        industry: "Thuê xe du lịch",
+        image: "/images/projects/song-anh-car-travel.PNG",
+        imageAlt: "Ảnh đại diện dự án Song Anh Car Travel",
+        summary:
+            "Website thuê xe du lịch Song Anh Car Travel giúp khách hàng dễ dàng tìm kiếm và đặt xe theo nhu cầu.",
+        result:
+            "Tăng 37% số lượt đặt xe trong 2 tháng đầu triển khai.",
+        stack: "WordPress, Elementor, Elementor Pro",
+    },
     {
         name: "Future Accounting",
         industry: "Kế toán",
@@ -128,15 +179,15 @@ const websiteProjects = [
         stack: "Astro, TailwindCSS, Headless CMS",
     },
     {
-        name: "Hack Game",
-        industry: "Bán account game",
+        name: "Netflix Account",
+        industry: "Bán account Netflix",
         image: "/images/projects/hackgame.png",
-        imageAlt: "Ảnh đại diện dự án Hack Game",
+        imageAlt: "Ảnh đại diện dự án Netflix Account",
         summary:
-            "Website thương mại điện tử chuyên bán account game với danh mục sản phẩm rõ ràng, lọc theo tựa game và mức rank.",
+            "Website thương mại điện tử chuyên bán account Netflix với danh mục sản phẩm rõ ràng, lọc theo tựa game và mức rank.",
         result:
             "Tăng 29% tỷ lệ hoàn tất đơn hàng nhờ tối ưu quy trình mua và thanh toán nhanh.",
-        stack: "WordPress, WooCommerce, Cloudflare",
+        stack: "WordPress, WooCommerce, Elementor, Elementor Pro",
     },
     {
         name: "Ốc bươu vàng",
@@ -175,6 +226,17 @@ const websiteProjects = [
 
 const webApplicationProjects = [
     {
+        name: "Kinder CRM",
+        industry: "CRM · Quản lý trường mầm non toàn diện",
+        image: "/images/projects/kinder-banner.PNG",
+        imageAlt: "Ảnh đại diện dự án Kinder CRM",
+        summary:
+            "Nền tảng CRM tích hợp quản lý trường mầm non toàn diện, quản lý nhân sự, theo dõi hiệu suất và lịch sử chăm sóc khách hàng theo từng đội.",
+        result:
+            "Giảm 52% thao tác chấm công thủ công, chuẩn hóa pipeline CRM và rút ngắn thời gian chốt báo cáo tuần.",
+        stack: "Next.js, TailwindCSS, Supabase",
+    },
+    {
         name: "U-Work",
         industry: "CRM · Chấm công online",
         image: "/images/projects/uwork.png",
@@ -195,6 +257,54 @@ const webApplicationProjects = [
         result:
             "Tăng 28% tỷ lệ hoàn thành khóa học và giảm 45% thời gian quản trị lớp cho đội vận hành đào tạo.",
         stack: "React, Laravel, MySQL",
+    },
+];
+
+const mobileAppProjects = [
+    {
+        name: "Transportme Passenger",
+        industry: "Transport · Theo dõi xe buýt realtime",
+        image: "/images/projects/transportme-passenger.webp",
+        imageAlt: "Màn hình theo dõi xe buýt realtime trên bản đồ của Transportme Passenger",
+        images: [
+            "/images/projects/transportme-passenger.webp",
+            "/images/projects/transportme-passenger-map.webp",
+        ],
+        summary:
+            "Ứng dụng hành khách theo dõi xe buýt realtime trên bản đồ, quản lý điểm dừng và nhận thông báo vận hành từ nhà khai thác.",
+        result:
+            "Giảm thời gian chờ cảm nhận của hành khách nhờ GPS gần realtime và trải nghiệm map rõ ràng trên thiết bị di động.",
+        stack: "React Native, Google Maps, Push Notification",
+    },
+    {
+        name: "QUALEE onboarding & engagement",
+        industry: "HR Tech · Onboarding & gắn kết nhân sự",
+        image: "/images/projects/qualee-onboarding.webp",
+        imageAlt: "Màn hình Home onboarding và pending actions của QUALEE",
+        images: [
+            "/images/projects/qualee-onboarding.webp",
+            "/images/projects/qualee-engagement.webp",
+        ],
+        summary:
+            "App mobile giúp nhân sự hoàn thành hành trình onboarding, theo dõi pending actions và đo lường gắn kết (eNPS) ngay trên điện thoại.",
+        result:
+            "Chuẩn hóa trải nghiệm nhân viên mới: hoàn thành journey nhanh hơn và tăng tỷ lệ hoàn tất bước onboarding trên mobile.",
+        stack: "React Native, REST API, Analytics",
+    },
+    {
+        name: "UniScore - Tỷ Số Trực Tiếp",
+        industry: "Sports · Live score & thống kê trận đấu",
+        image: "/images/projects/uniscore-fast-score.webp",
+        imageAlt: "Màn hình danh sách tỷ số trực tiếp World Cup của UniScore",
+        images: [
+            "/images/projects/uniscore-fast-score.webp",
+            "/images/projects/uniscore-live-match.webp",
+        ],
+        summary:
+            "Ứng dụng xem tỷ số trực tiếp, lịch thi đấu, thống kê trận và cập nhật live match realtime cho người hâm mộ thể thao.",
+        result:
+            "Người dùng theo dõi trận đấu nhanh hơn TV nhờ push goal/card và giao diện live data tối ưu trên mobile.",
+        stack: "Flutter, WebSocket, Push Notification",
     },
 ];
 
@@ -249,6 +359,18 @@ const packageServices = [
             "Tặng tên miền năm đầu",
         ],
     },
+    {
+        id: "mobile-app",
+        title: "Phát triển Mobile App",
+        discountPercent: 0,
+        features: [
+            "Phát triển iOS & Android (React Native, Flutter,...)",
+            "UI/UX mobile-first và tối ưu hiệu năng",
+            "Hỗ trợ submit App Store / Google Play",
+            "Bảo hành tối thiểu 3 tháng",
+            "Hỗ trợ kỹ thuật 24/7",
+        ],
+    },
 ];
 
 const productCategories = [
@@ -292,6 +414,7 @@ export {
     projects,
     websiteProjects,
     webApplicationProjects,
+    mobileAppProjects,
     packageServices,
     productCategories,
     productTags,

@@ -6,10 +6,10 @@ import Paragraph from "../../components/shared/Paragraph.astro";
 import BtnLink from "../../components/shared/BtnLink.astro";
 import CTA from "../../components/sections/CTA.astro";
 import ComtactForm from "../../components/sections/ComtactForm.astro";
-import { websiteProjects } from "../../utils/data";
+import { mobileAppProjects } from "../../utils/data";
 ---
 
-<Layout title="Dự án Website đã triển khai">
+<Layout title="Dự án Mobile App đã triển khai">
   <main class="relative flex flex-col gap-y-20 md:gap-y-28 overflow-hidden pt-28 lg:pt-36 pb-12 md:pb-20">
     <section class="relative">
       <Container>
@@ -18,34 +18,40 @@ import { websiteProjects } from "../../utils/data";
           <span class="text-heading-3 opacity-60" aria-hidden="true">/</span>
           <a href="/projects" class="rounded-full bg-box-bg/80 px-3 py-1 font-medium text-heading-3 shadow-sm ring-1 ring-box-border backdrop-blur-sm transition hover:text-primary hover:ring-primary/30 dark:bg-box-bg/60">Dự án</a>
           <span class="text-heading-3 opacity-60" aria-hidden="true">/</span>
-          <span class="rounded-full bg-primary/12 px-3 py-1 font-semibold text-primary ring-1 ring-primary/25">Website</span>
+          <span class="rounded-full bg-primary/12 px-3 py-1 font-semibold text-primary ring-1 ring-primary/25">Mobile App</span>
         </nav>
 
         <header class="mt-10 max-w-3xl space-y-5">
           <p class="inline-flex w-fit rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-primary ring-1 ring-primary/30 bg-white/65 dark:bg-box-bg/50 backdrop-blur-sm">
-            Website đã làm
+            Mobile App đã làm
           </p>
           <h1 class="text-balance text-[2rem] leading-[1.12] font-bold tracking-tight text-heading-1 sm:text-4xl sm:leading-[1.08] md:text-5xl">
-            Các dự án website doanh nghiệp đã triển khai thực tế
+            Các dự án mobile app đã triển khai trên iOS và Android
           </h1>
           <Paragraph className="!text-heading-3 !text-[1.05rem] !leading-relaxed md:!text-lg">
-            Danh sách dưới đây là các case tiêu biểu đội ngũ đã thực hiện, tập trung vào hiệu quả kinh doanh và trải nghiệm người dùng.
+            Tập trung vào app có nghiệp vụ rõ: theo dõi realtime, onboarding nhân sự và live score — tối ưu trải nghiệm trên điện thoại.
           </Paragraph>
         </header>
       </Container>
     </section>
 
-    <section class="relative" aria-label="Danh sách dự án website">
+    <section class="relative" aria-label="Danh sách dự án mobile app">
       <Container>
-        <div class="grid gap-6 md:grid-cols-2">
-          {websiteProjects.map((project) => (
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {mobileAppProjects.map((project) => (
             <article class="rounded-3xl border border-box-border bg-box-bg/90 p-7 shadow-lg shadow-box-shadow backdrop-blur-sm dark:bg-box-bg/70">
-              <img
-                src={project.image}
-                alt={project.imageAlt}
-                loading="lazy"
-                class="mb-5 aspect-[16/9] w-full rounded-2xl border border-box-border/70 object-cover"
-              />
+              <div class="mb-5 grid grid-cols-2 gap-3">
+                {project.images.slice(0, 2).map((src, i) => (
+                  <div class="flex min-h-[16rem] items-center justify-center rounded-2xl border border-box-border/70 bg-white p-2 dark:bg-white/[0.04]">
+                    <img
+                      src={src}
+                      alt={`${project.imageAlt} — ảnh ${i + 1}`}
+                      loading="lazy"
+                      class="max-h-64 w-auto rounded-xl object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
               <span class="inline-flex items-center rounded-full bg-primary/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary/20">
                 {project.industry}
               </span>
@@ -63,8 +69,7 @@ import { websiteProjects } from "../../utils/data";
         </div>
         <div class="mt-10 flex flex-wrap gap-3">
           <BtnLink href="/projects/web-application" variant="secondary" text="Xem dự án Web application" className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]" />
-          <BtnLink href="/projects/mobile-app" variant="secondary" text="Xem dự án Mobile App" className="rounded-full border border-box-border bg-white/70 dark:bg-white/[0.05]" />
-          <BtnLink href="/contact?package=website-doanh-nghiep" variant="primary" text="Nhận tư vấn dự án tương tự" />
+          <BtnLink href="/contact?package=mobile-app" variant="primary" text="Nhận tư vấn dự án tương tự" />
         </div>
       </Container>
     </section>

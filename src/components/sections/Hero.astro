@@ -2,6 +2,7 @@
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import HeroConsultForm from "../react/HeroConsultForm";
+import HeroProjectSlideshow from "../react/HeroProjectSlideshow";
 import ByNumber from "./ByNumber.astro";
 ---
 
@@ -45,19 +46,12 @@ import ByNumber from "./ByNumber.astro";
     </div>
 
     <div
-      class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl"
+      class="flex flex-1 lg:w-1/2 lg:h-auto relative overflow-visible lg:max-w-none lg:mx-0 mx-auto max-w-3xl lg:min-h-[28rem]"
     >
-      <img
-        src="/images/right-banner-2.jpg"
-        alt="Hero image"
-        width="2350"
-        height="2359"
-        class="lg:absolute lg:w-full lg:h-full rounded-3xl  lg:max-h-none lg:max-h-96"
-      />
-      <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-      <div class="absolute  p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-      
-      <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
+      <HeroProjectSlideshow client:load />
+      <div class="pointer-events-none absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+      <div class="pointer-events-none absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+      <span class="pointer-events-none absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
     </div>
   </Container>
 
