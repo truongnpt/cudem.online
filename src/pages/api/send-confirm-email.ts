@@ -4,8 +4,39 @@ import { getConfirmTemplate } from "../../email-templates/send-confirm-email";
 
 export const prerender = false;
 
+const getCorsHeaders = (origin: string | null) => {
+    const allowedOrigins = [
+        "http://localhost:8080",
+        "http://localhost:5173",
+        "https://cudem.online",
+        "https://anh-tuan-phuong-chi.cudem.online",
+    ];
+
+    const headers: Record<string, string> = {
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+        Vary: "Origin",
+    };
+
+    if (origin && allowedOrigins.includes(origin)) {
+        headers["Access-Control-Allow-Origin"] = origin;
+    }
+
+    return headers;
+};
+
+// CORS preflight
+export const OPTIONS: APIRoute = async ({ request }) => {
+    const origin = request.headers.get("origin");
+
+    return new Response(null, {
+        status: 204,
+        headers: getCorsHeaders(origin),
+    });
+};
 
 export const POST: APIRoute = async ({ request }) => {
+    const origin = request.headers.get("origin");
 
     try {
         // ================================
@@ -40,6 +71,7 @@ export const POST: APIRoute = async ({ request }) => {
                     status: 400,
                     headers: {
                         "Content-Type": "application/json",
+                        ...getCorsHeaders(origin),
                     },
                 },
             );
@@ -70,6 +102,7 @@ export const POST: APIRoute = async ({ request }) => {
                     status: 500,
                     headers: {
                         "Content-Type": "application/json",
+                        ...getCorsHeaders(origin),
                     },
                 },
             );
@@ -133,6 +166,7 @@ export const POST: APIRoute = async ({ request }) => {
                 status: 200,
                 headers: {
                     "Content-Type": "application/json",
+                    ...getCorsHeaders(origin),
                 },
             },
         );
@@ -152,6 +186,7 @@ export const POST: APIRoute = async ({ request }) => {
                 status: 500,
                 headers: {
                     "Content-Type": "application/json",
+                    ...getCorsHeaders(origin),
                 },
             },
         );
