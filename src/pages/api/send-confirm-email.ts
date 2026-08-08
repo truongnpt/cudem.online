@@ -4,32 +4,25 @@ import { getConfirmTemplate } from "../../email-templates/send-confirm-email";
 
 export const prerender = false;
 
-const getValue = (value: FormDataEntryValue | null): string => {
-    return typeof value === "string" ? value.trim() : "";
-};
-
 const getCorsHeaders = (origin: string | null) => {
     const allowedOrigins = [
         "http://localhost:8080",
         "http://localhost:5173",
         "https://cudem.online",
-        "https://anh-tuan-phuong-chi.cudem.online"
+        "https://anh-tuan-phuong-chi.cudem.online",
     ];
 
-    const allowedOrigin =
-        origin && allowedOrigins.includes(origin)
-            ? origin
-            : "";
-
-    return {
-        ...(allowedOrigin
-            ? {
-                "Access-Control-Allow-Origin": allowedOrigin,
-            }
-            : {}),
+    const headers: Record<string, string> = {
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
+        Vary: "Origin",
     };
+
+    if (origin && allowedOrigins.includes(origin)) {
+        headers["Access-Control-Allow-Origin"] = origin;
+    }
+
+    return headers;
 };
 
 // CORS preflight
@@ -46,14 +39,28 @@ export const POST: APIRoute = async ({ request }) => {
     const origin = request.headers.get("origin");
 
     try {
-        const formData = await request.formData();
+        // ================================
+        // Parse JSON
+        // ================================
+        const body = await request.json();
 
-        const appName = getValue(formData.get("appName"));
-        const appLogo = getValue(formData.get("appLogo"));
-        const mailTo = getValue(formData.get("mailTo"));
-        const name = getValue(formData.get("name"));
-        const message = getValue(formData.get("message"));
+        const appName = String(body.appName ?? "").trim();
+        const appLogo = String(body.appLogo ?? "").trim();
+        const mailTo = String(body.mailTo ?? "").trim();
+        const name = String(body.name ?? "").trim();
+        const message = String(body.message ?? "").trim();
 
+        console.log("SEND CONFIRM EMAIL:", {
+            appName,
+            appLogo,
+            mailTo,
+            name,
+            message,
+        });
+
+        // ================================
+        // Validate
+        // ================================
         if (!name || !message) {
             return new Response(
                 JSON.stringify({
@@ -70,11 +77,17 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
+        // ================================
+        // SMTP Config
+        // ================================
         const smtpHost = import.meta.env.VERCEL_SMTP_HOST;
+
         const smtpPort = Number(
             import.meta.env.VERCEL_SMTP_PORT ?? 587,
         );
+
         const smtpUser = import.meta.env.VERCEL_SMTP_USER;
+
         const smtpPass = import.meta.env.VERCEL_SMTP_PASS;
 
         if (!smtpHost || !smtpUser || !smtpPass || !mailTo) {
@@ -95,6 +108,9 @@ export const POST: APIRoute = async ({ request }) => {
             );
         }
 
+        // ================================
+        // Create transporter
+        // ================================
         const transporter = nodemailer.createTransport({
             host: smtpHost,
             port: smtpPort,
@@ -105,9 +121,14 @@ export const POST: APIRoute = async ({ request }) => {
             },
         });
 
-        // Kiểm tra kết nối SMTP
+        // ================================
+        // Verify SMTP
+        // ================================
         await transporter.verify();
 
+        // ================================
+        // Send email
+        // ================================
         await transporter.sendMail({
             from:
                 import.meta.env.VERCEL_CONTACT_FROM_EMAIL ??
@@ -132,6 +153,9 @@ export const POST: APIRoute = async ({ request }) => {
             }),
         });
 
+        // ================================
+        // Success
+        // ================================
         return new Response(
             JSON.stringify({
                 ok: true,
