@@ -10,6 +10,7 @@ const getCorsHeaders = (origin: string | null) => {
         "http://localhost:5173",
         "https://cudem.online",
         "https://anh-tuan-phuong-chi.cudem.online",
+        "https://van-lap-thu-huyen.cudem.online"
     ];
 
     const headers: Record<string, string> = {
