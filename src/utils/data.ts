@@ -163,6 +163,16 @@ const projects = [
 
 const thiepCuoiOnlineProjects = [
     {
+        name: "Phi Trường & Kim Cúc",
+        industry: "Thiệp cưới online",
+        image: "/images/projects/phi-truong-kim-cuc.png",
+        imageAlt: "Ảnh đại diện dự án Phi Trường & Kim Cúc",
+        summary: "Website thiệp cưới online Phi Trường & Kim Cúc là nền tảng kết nối giữa cặp đôi và khách mời, giúp chia sẻ thông tin, hình ảnh và lời chúc mừng.",
+        result: "Thiết kế tối giản, sang trọng, phù hợp với không khí trang trọng của ngày cưới",
+        stack: "Next.js, TailwindCSS",
+        link: "https://phi-truong-kim-cuc-wedding.vercel.app/",
+    },
+    {
         name: "Anh Tuấn & Phương Chi",
         industry: "Thiệp cưới online",
         image: "/images/projects/anh-tuan-phuong-chi.png",
