@@ -141,6 +141,12 @@ const projects = [
         </svg>`,
     },
     {
+        title: "Thiệp Cưới online",
+        description: "Thiệp cưới online là ứng dụng web được thiết kế để hoạt động trên môi trường web, có thể truy cập từ bất kỳ thiết bị nào có kết nối internet.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a1.5 1.5 0 011.458 1.147l.489 1.956m0 0L6.75 12h10.5l1.5-6H5.583z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.5a.75.75 0 100 1.5.75.75 0 000-1.5zm9 0a.75.75 0 100 1.5.75.75 0 000-1.5z" />
+        </svg>`,
+    },
+    {
         title: "Web application",
         description: "Web application là ứng dụng web được thiết kế để hoạt động trên môi trường web, có thể truy cập từ bất kỳ thiết bị nào có kết nối internet.",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386a1.5 1.5 0 011.458 1.147l.489 1.956m0 0L6.75 12h10.5l1.5-6H5.583z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 19.5a.75.75 0 100 1.5.75.75 0 000-1.5zm9 0a.75.75 0 100 1.5.75.75 0 000-1.5z" />
@@ -154,6 +160,32 @@ const projects = [
         </svg>`,
     },
 ];
+
+const thiepCuoiOnlineProjects = [
+    {
+        name: "Anh Tuấn & Phương Chi",
+        industry: "Thiệp cưới online",
+        image: "/images/projects/anh-tuan-phuong-chi.png",
+        imageAlt: "Ảnh đại diện dự án Anh Tuấn & Phương Chi",
+        summary:
+            "Website thiệp cưới online Anh Tuấn & Phương Chi là nền tảng kết nối giữa cặp đôi và khách mời, giúp chia sẻ thông tin, hình ảnh và lời chúc mừng.",
+        result:
+            "Trẻ trung và hiện đại với thiết kế tối ưu cho di động, dễ dàng chia sẻ đến bạn bè và người thân.",
+        stack: "Astro, TailwindCSS, React, Supabase",
+        link: "https://anh-tuan-phuong-chi.cudem.online/"
+    },
+    {
+        name: "Văn Lập & Thu Huyên",
+        industry: "Thiệp cưới online",
+        image: "/images/projects/van-lap-thu-huyen.png",
+        imageAlt: "Ảnh đại diện dự án Văn Lập & Thu Huyên",
+        summary:
+            "Website thiệp cưới online Văn Lập & Thu Huyên là nền tảng kết nối giữa cặp đôi và khách mời, giúp chia sẻ thông tin, hình ảnh và lời chúc mừng.",
+        result:
+            "Trang web với thiết kế tối giản, sang trọng, phù hợp với không khí trang trọng của ngày cưới",
+        stack: "Astro, TailwindCSS, React, Supabase",
+        link: "https://van-lap-thu-huyen.cudem.online/"
+    },];
 
 const websiteProjects = [
     {
@@ -323,6 +355,19 @@ const packageServices = [
         ],
     },
     {
+        id: "thiep-cuoi-online",
+        title: "Thiệp cưới online",
+        priceVnd: 500_000,
+        discountPercent: 5,
+        features: [
+            "Phát triển trên nền tảng react,astro, supabase",
+            "Tối ưu SEO",
+            "Hỗ trợ 24/7",
+            "Bảo hành trọn đời cặp đôi",
+            "Tặng tên miền phụ",
+        ],
+    },
+    {
         id: "website-doanh-nghiep",
         title: "Website doanh nghiệp",
         priceVnd: 5_000_000,
@@ -390,7 +435,7 @@ const products = [
         promotionPercent: 0,
         category: "plugin-wordpress",
         tags: ["Plugin Free", "Wordpress", "Plugin"],
-        images: ["/images/products/cu-dem-float-button.png","/images/products/cu-dem-float-button-pro.png"],
+        images: ["/images/products/cu-dem-float-button.png", "/images/products/cu-dem-float-button-pro.png"],
         count: 100,
         description:
             "Plugin tạo nút nổi liên hệ nhanh cho website Wordpress, phù hợp để gom các kênh gọi điện, chat và mạng xã hội vào một vị trí dễ thao tác.",
@@ -402,7 +447,7 @@ const products = [
         promotionPercent: 20,
         category: "plugin-wordpress",
         tags: ["Plugin Pro", "Wordpress", "Plugin"],
-        images: ["/images/products/cu-dem-float-button.png","/images/products/cu-dem-float-button-pro.png"],
+        images: ["/images/products/cu-dem-float-button.png", "/images/products/cu-dem-float-button-pro.png"],
         count: 79,
         description:
             "Bản Pro mở rộng khả năng tuỳ biến giao diện, tối ưu CTA và cấu hình nâng cao cho các website Wordpress cần chuyển đổi tốt hơn.",
@@ -413,6 +458,7 @@ export {
     services,
     projects,
     websiteProjects,
+    thiepCuoiOnlineProjects,
     webApplicationProjects,
     mobileAppProjects,
     packageServices,

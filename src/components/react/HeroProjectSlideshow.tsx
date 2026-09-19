@@ -34,6 +34,14 @@ const SLIDES: Slide[] = [
     src: "/images/projects/day-lai-xe.png",
     alt: "Dạy lái xe 365",
   },
+  {
+    src: "/images/projects/anh-tuan-phuong-chi.png",
+    alt: "Thiệp cưới online Anh Tuấn & Phương Chi",
+  },
+  {
+    src: "/images/projects/van-lap-thu-huyen.png",
+    alt: "Thiệp cưới online Văn Lập & Thu Huyên",
+  },
 ];
 
 type Pose = {

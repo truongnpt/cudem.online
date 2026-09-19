@@ -37,8 +37,9 @@ const navItems: NavItem[] = [
     text: "Dự án",
     children: [
       { href: "/projects/website", text: projects[0].title },
-      { href: "/projects/web-application", text: projects[1].title },
-      { href: "/projects/mobile-app", text: projects[2].title },
+      { href: "/projects/thiep-cuoi-online", text: projects[1].title },
+      { href: "/projects/web-application", text: projects[2].title },
+      { href: "/projects/mobile-app", text: projects[3].title },
     ],
   },
   {
@@ -47,7 +48,7 @@ const navItems: NavItem[] = [
   },
   {
     href: "/store",
-    text: "Cửa hàng"
+    text: "Cửa hàng",
   },
 ];
 ---
@@ -61,13 +62,18 @@ const navItems: NavItem[] = [
       data-nav-shell
       class="overflow-visible rounded-full border border-transparent bg-white/90 px-3 sm:px-5 lg:px-3 py-2 sm:py-2.5 shadow-sm backdrop-blur-md transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ease-out dark:bg-box-bg/90"
     >
-      <div class="bg-cu-dem-gradient transition-all duration-300 ease-out w-20 h-20 dark:bg-gradient-to-r from-primary to-green-500 rounded-full absolute left-[12%] top-[15%] blur-2xl"></div>
+      <div
+        class="bg-cu-dem-gradient transition-all duration-300 ease-out w-20 h-20 dark:bg-gradient-to-r from-primary to-green-500 rounded-full absolute left-[12%] top-[15%] blur-2xl"
+      >
+      </div>
       <nav class="w-full flex justify-between items-center gap-6 relative">
         <!-- logo -->
         <div class="min-w-max inline-flex relative z-50">
           <a href="/" class="relative flex items-center gap-0">
             <img src={app.logo} alt={app.name} width="40" height="40" />
-            <div class="flex flex-col gap-1 items-start justify-end text-lg font-semibold text-heading-1 !h-[52px]">
+            <div
+              class="flex flex-col gap-1 items-start justify-end text-lg font-semibold text-heading-1 !h-[52px]"
+            >
               <h3 class="text-primary text-lg leading-none">{app.service}</h3>
               <h3 class="text-black text-xs leading-none">{app.online}</h3>
             </div>
@@ -88,12 +94,7 @@ const navItems: NavItem[] = [
               class="desktop-nav-indicator"></span>
             {
               navItems.map((item, i) => {
-                return (
-                  <Navitem
-                    {...item}
-                    submenuInstanceId={`d-${i}`}
-                  />
-                );
+                return <Navitem {...item} submenuInstanceId={`d-${i}`} />;
               })
             }
           </ul>
@@ -226,12 +227,7 @@ const navItems: NavItem[] = [
       >
         {
           navItems.map((item, i) => {
-            return (
-              <Navitem
-                {...item}
-                submenuInstanceId={`m-${i}`}
-              />
-            );
+            return <Navitem {...item} submenuInstanceId={`m-${i}`} />;
           })
         }
       </ul>

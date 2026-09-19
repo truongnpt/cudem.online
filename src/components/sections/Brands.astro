@@ -4,6 +4,7 @@ import Title from "../shared/Title.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import {
   websiteProjects,
+  thiepCuoiOnlineProjects,
   webApplicationProjects,
   mobileAppProjects,
 } from "../../utils/data";
@@ -12,6 +13,11 @@ const projectGroups = [
   {
     title: "Website đã triển khai",
     items: websiteProjects,
+    layout: "single" as const,
+  },
+  {
+    title: "Thiệp cưới online đã triển khai",
+    items: thiepCuoiOnlineProjects,
     layout: "single" as const,
   },
   {
@@ -42,20 +48,24 @@ const projectGroups = [
           <div class="space-y-4">
             <h3 class="text-xl font-semibold text-heading-2">{group.title}</h3>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {group.items.map((project) => (
+              {group.items.map((project: any) => (
                 <article class="rounded-2xl bg-body border border-box-border p-4 sm:p-5">
-                  {group.layout === "dual" && "images" in project && Array.isArray(project.images) ? (
+                  {group.layout === "dual" &&
+                  "images" in project &&
+                  Array.isArray(project.images) ? (
                     <div class="grid grid-cols-2 gap-2">
-                      {project.images.slice(0, 2).map((src: string, i: number) => (
-                        <div class="flex min-h-[12rem] items-center justify-center rounded-xl bg-white p-2 dark:bg-white/[0.04]">
-                          <img
-                            src={src}
-                            alt={`${project.imageAlt} (${i + 1})`}
-                            class="max-h-52 w-auto rounded-lg object-contain"
-                            loading="lazy"
-                          />
-                        </div>
-                      ))}
+                      {project.images
+                        .slice(0, 2)
+                        .map((src: string, i: number) => (
+                          <div class="flex min-h-[12rem] items-center justify-center rounded-xl bg-white p-2 dark:bg-white/[0.04]">
+                            <img
+                              src={src}
+                              alt={`${project.imageAlt} (${i + 1})`}
+                              class="max-h-52 w-auto rounded-lg object-contain"
+                              loading="lazy"
+                            />
+                          </div>
+                        ))}
                     </div>
                   ) : (
                     <div class="flex min-h-[11rem] items-center justify-center rounded-xl bg-white dark:bg-white/[0.04]">
@@ -74,6 +84,16 @@ const projectGroups = [
                     </span>
                     <p class="text-sm text-heading-3">{project.summary}</p>
                   </div>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener"
+                      class="mt-4 w-full justify-center inline-flex items-center rounded-full bg-primary/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-primary ring-1 ring-primary/20"
+                    >
+                      Xem demo
+                    </a>
+                  )}
                 </article>
               ))}
             </div>
